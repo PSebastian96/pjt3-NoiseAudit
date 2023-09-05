@@ -68,6 +68,11 @@ The third milestone project's objective is to make a website that contains front
 <a name="tech"></a>
 # Technologies Used 
 ### Languages Used :
+
+#### Front-end :
+  - Materialize [https://materializecss.com]
+  - Google fonts [https://fonts.google.com]
+
 ### Emailjs API :
 ### Environment Used
 
