@@ -10,7 +10,7 @@
     *   [Wireframing](#wireframe)
 *   [Technologies used](#tech)
 *   [Content Sources](#sources)
-*   [Deploymeny](#deploy)
+*   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
 
 <a name="student"></a>
