@@ -19,6 +19,8 @@ Third Milestone Project - Code Institute
 *   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
 
+<hr>
+
 <a name="student"></a>
 # Student Details
 
@@ -31,7 +33,15 @@ Institution: City of Bristol College (https://www.cityofbristol.ac.uk) in partne
 <a name="intro"></a>
 # Introduction
 
-Welcome to my second readme file and my second website project.
+Welcome to my third project milestone's readme file!
+
+NoiseAudit is a music oriented blogging site, where visitors of the site can join, create an account and publish blogs, reviews about: musical instruments, equipment and albums/artists.
+
+This project is part of the third milestone project within the course from City of Bristol College in partnership with Code Institute.
+
+The third milestone project's objective is to make a website that contains frontend and backend technologies with focus on the backend with python and flask framework. This enables to create a fully functional website, where users can join a website and interact with the content found on the website. 
+
+<hr>
 
 <a name="userexp"></a>
 # User Experience (UX)
