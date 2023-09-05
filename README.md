@@ -1,9 +1,11 @@
 <a name="topofpage"></a>
 
-# pjt2-keytarschool
+# pjt3-NoiseAudit
 
-Second Milestone Project - Code Institute 
-<br>
+Third Milestone Project - Code Institute 
+
+<hr>
+
 # Table of Contents
 
 *   [Student Details](#student)
