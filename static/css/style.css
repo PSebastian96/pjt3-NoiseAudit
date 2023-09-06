@@ -17,3 +17,12 @@
     text-decoration: underline;
     color: white;
 }
+
+.mobile-menu {
+    font-family: 'Henny Penny', cursive;
+}
+
+.mobile-menu a:hover {
+    text-decoration: underline;
+    color: black;
+}
