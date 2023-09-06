@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
   });
 
-// active current page
+//active current page
   $(document).ready(function(){
     $('ul li a').click(function(){
       $('li a').removeClass("active");
