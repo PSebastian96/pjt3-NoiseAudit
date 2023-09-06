@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Henny+Penny&family=Rubik+Distressed&display=swap');
 
+/* navbar style */
+
 .brand-logo {
     font-family: 'Rubik Distressed', cursive;
 }
@@ -25,4 +27,13 @@
 .mobile-menu a:hover {
     text-decoration: underline;
     color: black;
+}
+
+/* home page */
+
+.bg-img {
+    background-image: url('static/images/vinyl.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    size: 100vh;
 }

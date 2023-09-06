@@ -21,7 +21,7 @@
                 <a href="#" class="brand-logo">NoiseAudit</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down menu-list">
-                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
                     <li><a href="#">Join</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>
@@ -32,7 +32,7 @@
         <!-- mobile view navbar -->
         <div class="sidenav grey" id="mobile-demo">
             <ul class="mobile-menu">
-                <li><a href="#" class="active">Home</a></li>
+                <li><a href="{{ url_for('home')}}" class="active">Home</a></li>
                 <li><a href="#">Join</a></li>
                 <li><a href="#">Login</a></li>
             </ul>
