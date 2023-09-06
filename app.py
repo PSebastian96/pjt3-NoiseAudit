@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def hello_world():
+def hello():
     return "Hello World!"
 
 
