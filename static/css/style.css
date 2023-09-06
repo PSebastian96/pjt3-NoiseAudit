@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Henny+Penny&family=Rubik+Distressed&display=swap');
 
+* {
+    margin: 0;
+}
+
 /* navbar style */
+
+.nav-wrapper {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+}
 
 .brand-logo {
     font-family: 'Rubik Distressed', cursive;
@@ -30,7 +39,6 @@
 
 .mobile-menu a:hover {
     text-decoration: underline;
-    color: rgb(3, 250, 3);
 }
 
 /* footer style */
@@ -50,4 +58,84 @@ footer i {
 
 footer i:hover {
     color: #68dc64;
+}
+
+/* index page style */
+
+.btn {
+    background-color: #68dc64;
+    font-weight: 700;
+    color: black;
+    border-radius: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.waves-effect.waves-grey .waves-ripple {
+     background-color: rgba(91, 86, 84, 0.758);
+   }
+
+.txt-position {
+    text-align: center;
+    margin: 0;
+}
+
+.hero-txt {
+margin: 0;
+padding-top: 5rem;
+font-family: 'Rubik Distressed', cursive;
+color:#68dc64
+}
+
+.about-txt {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: whitesmoke;
+}
+
+h4 i {
+    color: rgb(30, 255, 0);
+    font-size: 1.5rem;
+}
+
+.box-bg {
+    background-color: rgb(46, 42, 42);
+}
+
+.rev-title-box {
+    background-color: black;
+    padding: 1rem;
+}
+
+.row {
+    margin: 0;
+}
+
+.row .col {
+    padding: 0 0 2rem;
+}
+
+.box-one {
+    background-color: rgb(10, 10, 10);
+}
+
+.rev-title {
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-decoration: underline wavy 0.3rem;
+    color: #68dc64;
+}
+
+.rev-txt {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #68dc64;
+}
+
+.txt-position p {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: rgb(228, 228, 228);
+}
+
+.divider {
+    background-color: #68dc64;
+    border-top: dashed 1rem;
+    height: 0.1rem;
 }
