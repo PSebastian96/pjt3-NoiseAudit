@@ -12,12 +12,16 @@
 
 .menu-list a:hover {
     text-decoration: underline;
-    color: white;
+    color: #68dc64;
+}
+
+.brand-logo:hover {
+    color: #68dc64;
 }
 
 .active {
     text-decoration: underline;
-    color: white;
+    color: #68dc64;
 }
 
 .mobile-menu {
@@ -26,14 +30,24 @@
 
 .mobile-menu a:hover {
     text-decoration: underline;
-    color: black;
+    color: rgb(3, 250, 3);
 }
 
-/* home page */
+/* footer style */
 
-.bg-img {
-    background-image: url('static/images/vinyl.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    size: 100vh;
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+footer i {
+   position: relative;
+   color: #ffffff;
+   padding: 4px;
+}
+
+footer i:hover {
+    color: #68dc64;
 }
