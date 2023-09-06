@@ -12,3 +12,8 @@
     text-decoration: underline;
     color: white;
 }
+
+.active {
+    text-decoration: underline;
+    color: white;
+}
