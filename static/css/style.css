@@ -60,6 +60,10 @@ footer i:hover {
     color: #68dc64;
 }
 
+.footer-text {
+    font-family: 'Henny Penny', cursive;
+}
+
 /* index page style */
 
 .btn {
@@ -100,7 +104,7 @@ h4 i {
     background-color: rgb(46, 42, 42);
 }
 
-.rev-title-box {
+.section-title-box {
     background-color: black;
     padding: 1rem;
 }
@@ -117,13 +121,13 @@ h4 i {
     background-color: rgb(10, 10, 10);
 }
 
-.rev-title {
+.section-title {
     text-align: center;
     font-family: 'Gloria Hallelujah', cursive;
     text-decoration: underline wavy 0.3rem;
     color: #68dc64;
 }
-
+/* Reviews */
 .rev-txt {
     font-family: 'Gloria Hallelujah', cursive;
     color: #68dc64;
@@ -134,8 +138,78 @@ h4 i {
     color: rgb(228, 228, 228);
 }
 
-.divider {
-    background-color: #68dc64;
-    border-top: dashed 1rem;
-    height: 0.1rem;
+.rev-two {
+    border-left: #68dc64 solid 3px;
+}
+
+.rev-three {
+    border-left: #68dc64 solid 3px;
+}
+
+.rev-img {
+    width: 30vh;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.rev-box {
+    background-color: black;
+}
+
+.red-txt {
+    color: rgb(255, 0, 0);
+}
+
+.blue-txt {
+    color: blue;
+}
+
+.pink-txt {
+    color: pink;
+}
+
+/* F.A.Q */
+.faq-box {
+    color: rgb(232, 242, 48);
+    font-size: 1.5rem;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.collapsible-header {
+    background-color: black;
+}
+
+.collapsible-body {
+    background-color: grey;
+}
+
+.collapsible {
+    margin: 0;
+    background-color: black;
+}
+
+.collapsible.popout>li.active {
+    margin:0;
+}
+
+/* Responsivness */
+
+@media screen and (max-width: 600px){
+    
+    .rev-one {
+        border: #68dc64 solid 2px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+    .rev-two {
+        border: #68dc64 solid 2px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+    
+    .rev-three {
+        border: #68dc64 solid 2px;
+        border-radius: 10px;
+    }
 }

@@ -13,46 +13,58 @@
 
   </div>
   
-  <div class="col s1 m1 l1 rev-title-box">
-     <h3 class="rev-title">Reviews</h3>
+
+  <!-- Reviews -->
+  <div class="col s1 m1 l1 section-title-box">
+     <h3 class="section-title">Reviews</h3>
   </div>
 
-<!-- Review first -->
-<div class="row">
+  <div class="row center rev-box">
 
-    <div class="col s6 m6 l6 box-one txt-position">
-        <h4 class="rev-txt">I love to be a Noise Auditor!</h4>
-        <p>I love to review albums, singles and songs in general!</p>
-        <p>Since i joined this website, I get to satisfy my Noise Auditing :D</p>
-        <p>- Ian</p>
+    <div class="col s12 m4 l4 rev-one">
+        <img class="rev-img" src="{{ url_for('static', filename='images/ian-review.jpg') }}">
+        <div class="rev-txt">
+         <p> I love being a Noise Auditor!</p>
+         <p> Since joining this community, I get to satisfy my noise auditing :D</p>
+         <p class="red-txt"> - Ian </p>
+        </div>
+    </div>
+    <div class="col s12 m4 l4 rev-two">
+        <img class="rev-img" src="{{ url_for('static', filename='images/hermann-lee.jpg') }}">
+        <div class="rev-txt">
+            <p> Best gear review blog!</p>
+            <p> I always find the best gear reviews and found my dream guitar \m/</p>
+            <p class="blue-txt"> - Hermann Lee </p>
+        </div>
+    </div>
+    <div class="col s12 m4 l4 rev-three">
+        <img class="rev-img" src="{{ url_for('static', filename='images/ayleena-rev.jpg') }}">
+      <div class="rev-txt">
+        <p> I have found the source of synthwave!</p>
+        <p> I like to leave reviews and share underground/retro synth music!</p>
+        <p class="pink-txt"> - Ayleena :) </p>
+      </div>
     </div>
 
-    <div class="col s6 m6 l6 box-one txt-position">
-        <h4 class="rev-txt">I love to be a Noise Auditor!</h4>
-        <p>I love to review albums, singles and songs in general!</p>
-        <p>Since i joined this website, I get to satisfy my Noise Auditing :D</p>
-        <p>- Ian</p>
-    </div>
+  </div>
 
-</div>
-<div class="divider"></div>
- <!-- Review second -->
-<div class="row">
-    <div class="col s6 m6 l6 box-one txt-position">
-        <h4 class="rev-txt">Noise Auditor the best gear reviews!!!</h4>
-        <p>Since joining this community, I always find the best gear.</p>
-        <p>I have no regrets, definitely one of the best, if not the best music review site \m/</p>
-        <p>- Hermann Lee</p>
-    </div>
-
-    <div class="col s6 m6 l6 box-one txt-position">
-        <h4 class="rev-txt">Noise Auditor the best gear reviews!!!</h4>
-        <p>Since joining this community, I always find the best gear.</p>
-        <p>I have no regrets, definitely one of the best, if not the best music review site \m/</p>
-        <p>- Hermann Lee</p>
-    </div>
-
+<!-- F.A.Q section -->
+<div class="col s1 m1 l1 section-title-box">
+    <h3 class="section-title">Frequently Asked Questions (F.A.Q)</h3>
 </div>
 
-<h1>F.A.Q</h1>
+<ul class="collapsible popout">
+    <li class="faq-box">
+      <div class="collapsible-header">Is the sign up free?</div>
+      <div class="collapsible-body"><span>Yes! Anyone can join for free. No fees!</span></div>
+    </li>
+    <li class="faq-box">
+      <div class="collapsible-header">Is this for musicians only?</div>
+      <div class="collapsible-body"><span>This is for everyone who loves music: Musicians, critics etc.</span></div>
+    </li>
+    <li class="faq-box">
+      <div class="collapsible-header">Can I only read blogs ?</div>
+      <div class="collapsible-body"><span>Yes, by signing up you can read, comment and publish your own blog!</span></div>
+    </li>
+  </ul>
 {% endblock %}

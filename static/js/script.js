@@ -10,3 +10,8 @@ $(document).ready(function(){
       $(this).addClass("active");
   });
   });
+
+//accordion f.a.q
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
