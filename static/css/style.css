@@ -80,7 +80,6 @@ footer i:hover {
    }
 
 .txt-position {
-    text-align: center;
     margin: 0;
 }
 
@@ -88,7 +87,7 @@ footer i:hover {
 margin: 0;
 padding-top: 5rem;
 font-family: 'Rubik Distressed', cursive;
-color:#68dc64
+color:#68dc64;
 }
 
 .about-txt {
@@ -102,12 +101,7 @@ h4 i {
 }
 
 .box-bg {
-   background-color: rgba(0, 0, 0, 0.1);
-}
-
-.hero-img {
-    background-position: center;
-    object-fit: cover;
+    background-color: rgb(75, 74, 75);
 }
 
 .section-title-box {
