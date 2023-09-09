@@ -6,12 +6,12 @@
 <div class="row">
 
     <div class="col s12 m12 l12 box-bg txt-position">
-            <h1 class="center hero-txt">Welcome to NoiseAudit!</h1>
-            <h4 class="center about-txt">We are a community who enjoys discovering and auditing new noise!</h4>
-            <a class="btn waves-effect waves-grey waves-ripple">Join</a>
+     <h1 class="hero-txt">Welcome to NoiseAudit!</h1>
+     <h4 class="about-txt">We are a community who enjoys discovering and auditing new noise!</h4>
+     <a class="btn waves-effect waves-grey waves-ripple">Join</a>
     </div>
 
-  </div>
+</div>
   
 
   <!-- Reviews -->
@@ -21,33 +21,31 @@
 
   <div class="row center rev-box">
 
-    <div class="col s12 m4 l4 rev-one">
-        <img class="rev-img" src="{{ url_for('static', filename='images/ian-review.jpg') }}">
+        <div class="col s12 m4 l4 rev-one">
+            <img class="rev-img" src="{{ url_for('static', filename='images/ian-review.jpg') }}">
+            <div class="rev-txt">
+            <p> I love being a Noise Auditor!</p>
+            <p> Since joining this community, I get to satisfy my noise auditing :D</p>
+            <p class="red-txt"> - Ian </p>
+            </div>
+        </div>
+        <div class="col s12 m4 l4 rev-two">
+            <img class="rev-img" src="{{ url_for('static', filename='images/hermann-lee.jpg') }}">
+            <div class="rev-txt">
+                <p> Best gear review blog!</p>
+                <p> I always find the best gear reviews and found my dream guitar \m/</p>
+                <p class="blue-txt"> - Hermann Lee </p>
+            </div>
+        </div>
+        <div class="col s12 m4 l4 rev-three">
+            <img class="rev-img" src="{{ url_for('static', filename='images/ayleena-rev.jpg') }}">
         <div class="rev-txt">
-         <p> I love being a Noise Auditor!</p>
-         <p> Since joining this community, I get to satisfy my noise auditing :D</p>
-         <p class="red-txt"> - Ian </p>
+            <p> I have found the source of synthwave!</p>
+            <p> I like to leave reviews and share underground/retro synth music!</p>
+            <p class="pink-txt"> - Ayleena :) </p>
+        </div>
         </div>
     </div>
-    <div class="col s12 m4 l4 rev-two">
-        <img class="rev-img" src="{{ url_for('static', filename='images/hermann-lee.jpg') }}">
-        <div class="rev-txt">
-            <p> Best gear review blog!</p>
-            <p> I always find the best gear reviews and found my dream guitar \m/</p>
-            <p class="blue-txt"> - Hermann Lee </p>
-        </div>
-    </div>
-    <div class="col s12 m4 l4 rev-three">
-        <img class="rev-img" src="{{ url_for('static', filename='images/ayleena-rev.jpg') }}">
-      <div class="rev-txt">
-        <p> I have found the source of synthwave!</p>
-        <p> I like to leave reviews and share underground/retro synth music!</p>
-        <p class="pink-txt"> - Ayleena :) </p>
-      </div>
-    </div>
-
-  </div>
-
 <!-- F.A.Q section -->
 <div class="col s1 m1 l1 section-title-box">
     <h3 class="section-title hide-on-small-only">Frequently Asked Questions</h3>
@@ -67,5 +65,5 @@
       <div class="collapsible-header">Can I only read blogs ?</div>
       <div class="collapsible-body"><span>Yes, by signing up you can read, comment and publish your own blog!</span></div>
     </li>
-  </ul>
+</ul>
 {% endblock %}
