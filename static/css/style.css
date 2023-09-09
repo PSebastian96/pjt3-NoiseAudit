@@ -218,6 +218,20 @@ h4 i {
     padding-bottom: 5rem;
 }
 
+.join-sign-title {
+    color: #68dc64;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: rgb(29, 29, 29);
+    margin: 0;
+    padding-top: 3rem;
+}
+
+.card-panel {
+    padding: 1rem;
+    background-color:rgb(26, 25, 25);
+    border-radius: 20px;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
