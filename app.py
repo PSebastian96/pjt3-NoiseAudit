@@ -23,6 +23,16 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/join")
+def join():
+    return render_template("join.html")
+
+
+@app.route("/signin")
+def signin():
+    return render_template("signin.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
