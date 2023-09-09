@@ -48,6 +48,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1.5rem;
+    border-top: #68dc64 1px solid;
 }
 
 footer i {
@@ -101,11 +102,16 @@ h4 i {
 }
 
 .box-bg {
-    background-color: rgb(46, 42, 42);
+   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hero-img {
+    background-position: center;
+    object-fit: cover;
 }
 
 .section-title-box {
-    background-color: black;
+    background-color: rgb(19, 19, 19);
     padding: 1rem;
 }
 
@@ -118,7 +124,7 @@ h4 i {
 }
 
 .box-one {
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(19, 19, 19);
 }
 
 .section-title {
@@ -154,7 +160,7 @@ h4 i {
 }
 
 .rev-box {
-    background-color: black;
+    background-color: rgb(19, 19, 19);;
 }
 
 .red-txt {
@@ -177,7 +183,7 @@ h4 i {
 }
 
 .collapsible-header {
-    background-color: black;
+    background-color: rgb(19, 19, 19);;
 }
 
 .collapsible-body {
@@ -186,7 +192,8 @@ h4 i {
 
 .collapsible {
     margin: 0;
-    background-color: black;
+    background-color: rgb(19, 19, 19);;
+    padding-bottom: 1rem;
 }
 
 .collapsible.popout>li.active {
