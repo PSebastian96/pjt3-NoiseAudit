@@ -102,13 +102,13 @@ h4 i {
 }
 
 .section-title-box {
-    background-color: rgb(52, 52, 52);
+    background-color: rgb(26, 25, 25);
     padding: 1rem;
 }
 
 .row {
     margin: 0;
-    padding-bottom: 10rem;
+    padding-bottom: 3rem;
     background-color:rgb(29, 29, 29);
 }
 
@@ -121,7 +121,7 @@ h4 i {
 }
 
 .box-one {
-    background-color: rgb(52, 52, 52);
+    background-color: rgb(26, 25, 25);
 }
 
 .section-title {
@@ -129,6 +129,27 @@ h4 i {
     font-family: 'Gloria Hallelujah', cursive;
     text-decoration: underline wavy 0.3rem;
     color: #68dc64;
+}
+/* About us*/
+
+.about-title {
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #68dc64;
+}
+
+.about-txt {
+    padding: 0rem 1rem 1rem 1rem;
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #68dc64;
+}
+
+.about-img {
+    object-fit: cover;
+    border-radius: 20px;
+    height: 75%;
+    width: 75%;
 }
 
 /* Reviews */
@@ -158,7 +179,7 @@ h4 i {
 }
 
 .rev-box {
-    background-color: rgb(52, 52, 52);
+    background-color: rgb(26, 25, 25);
 }
 
 .red-txt {
@@ -185,12 +206,12 @@ h4 i {
 }
 
 .collapsible-body {
-    background-color: grey;
+    background-color: rgb(26, 25, 25);
 }
 
 .collapsible {
     margin: 0;
-    background-color: rgb(52, 52, 52);
+    background-color: rgb(26, 25, 25);
     padding-bottom: 1rem;
 }
 
