@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<h3 class="center-align join-sign-title">Sign in</h3>
+<h3 class="center-align join-sign-title">Get in touch</h3>
 
 <div class="row">
-  <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('signin') }}">
+  <form class="col s12 m8 offset-m2" method="POST">
    
     <div class="card-panel">
       
       <!-- username -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-user-cog prefix green-text text-darken-4"></i>
           <input
             id="username"
             name="username"
@@ -26,10 +26,10 @@
         </div>
       </div>
       
-      <!-- passowrd -->
+      <!-- email -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+          <i class="fa-solid fa-envelope prefix green-text text-darken-4"></i>
           <input
             id="password"
             name="password"
@@ -39,14 +39,23 @@
             pattern="^[a-zA-Z0-9]{5,15}$"
             class="validate"
             required/>
-          <label for="password">Password</label>
+          <label for="email">Email</label>
         </div>
       </div>
       
-      <!-- login -->
+      <!-- message box -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fa-solid fa-pencil prefix green-text text-darken-4"></i>
+        <textarea id="message" name="message" type="password" rows="4" cols="50"></textarea>
+        <label for="message">Message</label>
+        </div>
+      </div>
+
+      <!-- Send btn -->
       <div class="row center">
         <button type="submit" class="s12 btn waves-effect">
-         Sign In <i class="fas fa-sign-in-alt"></i>
+         Send <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
     </div>
@@ -61,5 +70,6 @@
     </p>
   </div>
 </div>
+
 
 {% endblock %}
