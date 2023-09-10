@@ -31,13 +31,9 @@
         <div class="input-field col s12">
           <i class="fa-solid fa-envelope prefix green-text text-darken-4"></i>
           <input
-            id="password"
-            name="password"
-            type="password"
-            minlength="5"
-            maxlength="15"
-            pattern="^[a-zA-Z0-9]{5,15}$"
-            class="validate"
+            id="email"
+            name="email"
+            type="email"
             required/>
           <label for="email">Email</label>
         </div>
@@ -47,7 +43,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fa-solid fa-pencil prefix green-text text-darken-4"></i>
-        <textarea id="message" name="message" type="password" rows="4" cols="50"></textarea>
+        <textarea id="message" name="messagesummary" rows="4" cols="50"></textarea>
         <label for="message">Message</label>
         </div>
       </div>
@@ -70,6 +66,5 @@
     </p>
   </div>
 </div>
-
 
 {% endblock %}
