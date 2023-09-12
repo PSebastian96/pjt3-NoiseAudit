@@ -96,6 +96,11 @@ def signout():
     return redirect(url_for("signin"))
 
 
+@app.route("/get_blogs")
+def get_blogs():
+    return render_template("get_blogs.html")
+
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")

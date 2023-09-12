@@ -207,15 +207,12 @@ h4 i {
 .collapsible {
     margin: 0;
     background-color: rgb(26, 25, 25);
-    padding-bottom: 1rem;
+    padding-bottom: 5rem;
+    border: none;
 }
 
 .collapsible.popout>li.active {
     margin:0;
-}
-
-.collapsible {
-    padding-bottom: 5rem;
 }
 
 .join-sign-title {
