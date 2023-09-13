@@ -96,20 +96,24 @@ def signout():
     return redirect(url_for("signin"))
 
 
-@app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
-def edit_profile(user_profile_id):
+@app.route("/edit_profile", methods=["GET", "POST"])
+def edit_profile():
     if request.method == "POST":
-        submit = {
+        details = {
             "fname": request.form.get("fname"),
             "lname": request.form.get("lname"),
-            "user_email": request.form.get("user_name"),
-            "username": session["user"]
+            "user_email": request.form.get("user_email"),
         }
-        mongo.db.tasks.update_one(
-         {"_id": ObjectId(user_profile_id)},
-         {"$set": submit}
-         )
+        mongo.db.user_profile.insert_one(details)
         flash("Account Details Updated")
+        return redirect(url_for("profile"))
+
+
+@app.route("/delete_user/<user_profile>")
+def delete_user(user_profile):
+    mongo.db.users.delete_one({"_id": ObjectId(user_profile)})
+    flash("Account Has Been Deleted")
+    return redirect(url_for("index"))
 
 
 @app.route("/get_blogs")

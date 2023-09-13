@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="collapsible-body center">
-        <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_profile_id=_id) }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_profile_id=details._id) }}">
             <!-- users username -->
             <div class="row">
                 <div class="input-field col s12">
@@ -82,7 +82,7 @@
         <div class="collapsible-body center">
           <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
               will delete your account and details permanently!</p>
-           <a href="#" class="btn-small red lighten-1">Delete Account</a>
+           <a href="{{ url_for('delete_user', user_profile=details._id) }}" class="btn-small red lighten-1">Delete Account</a>
         </div>
     </li>
   </ul>
