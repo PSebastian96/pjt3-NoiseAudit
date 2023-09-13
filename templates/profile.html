@@ -17,25 +17,26 @@
     <li>
         <div class="collapsible-header grey darken-2">
           <div class="col s12">
-            <strong class="green-text grey darken-2">Create a blog!</strong>
+            <p class="green-text grey darken-2"><strong>Create a blog!</strong></p>
           </div>
         </div>
         <div class="collapsible-body center">
-          <p class="green-text">Create your audit {{ username }}!</p>
+          <p class="green-text">Create your noise audit {{ username }}!</p>
            <a href="#" class="btn-small green lighten-1">Blog</a>
         </div>
     </li>
     <li>
       <div class="collapsible-header s12 m6 white-text grey darken-2">
-        <div class="col s12 grey darken-2 center">
+        <div class="col s12 grey darken-2">
           <strong>Account details</strong>
         </div>
       </div>
       <div class="collapsible-body center">
-        <p class="light-green-text">first name :</p>
-        <p class="light-green-text">last name :</p>
-        <p class="light-green-text"><em>email :</em></p>
-         <a href="#" class="btn-small light-blue lighten-1">Edit Details</a>
+        <p class="light-green-text">username : {{ session[user] }}</p>
+        <p class="light-green-text">first name : {{ fname }}</p>
+        <p class="light-green-text">last name : {{ lname }}</p>
+        <p class="light-green-text"><em>email : {{ user_email }}</em></p>
+         <a action="{{ url_for('edit_profile', user_profile_id=_id) }}" class="btn-small light-blue lighten-1">Edit Details</a>
       </div>
     </li>
     <li>

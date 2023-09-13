@@ -48,7 +48,7 @@ def join():
     return render_template("join.html")
 
 
-@app.route("/signin")
+@app.route("/signin", methods=["GET", "POST"])
 def signin():
     if request.method == "POST":
         # check if username exists in db
@@ -94,6 +94,22 @@ def signout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("signin"))
+
+
+@app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
+def edit_profile(user_profile_id):
+    if request.method == "POST":
+        submit = {
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
+            "user_email": request.form.get("user_name"),
+            "username": session["user"]
+        }
+        mongo.db.tasks.update_one(
+         {"_id": ObjectId(user_profile_id)},
+         {"$set": submit}
+         )
+        flash("Account Details Updated")
 
 
 @app.route("/get_blogs")
