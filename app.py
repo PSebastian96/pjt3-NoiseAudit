@@ -126,6 +126,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

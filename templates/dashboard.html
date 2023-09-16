@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row head-padding">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-3">
+            <h3 class="center-align light-green-text grey darken-3"> Admin Dashboard </h3>
+        </div>
+    </div>
+</div>
+
+    <ul class="collapsible center">
+        <li>
+          <div class="collapsible-header white-text">General Info</div>
+          <div class="collapsible-body white-text">
+            <p>Number of users: </p>
+            <p>Number of blogs: </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header white-text">User List</div>
+          <div class="collapsible-body white-text">
+            <p>user ....n </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header white-text">Blog data</div>
+          <div class="collapsible-body white-text">
+            <p>Most liked blog :</p>
+            <p>Most disliked blog :</p>
+          </div>
+        </li>
+      </ul>
+
+{% endblock %}
