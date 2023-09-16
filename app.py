@@ -107,23 +107,23 @@ def user_details():
 @app.route("/edit_details/<user_profile_id>", methods=["GET", "POST"])
 def edit_detials(user_profile_id):
     if request.method == "POST":
-        user_detail = {
-            "fname": request.form.get("fname"),
-            "lname": request.form.get("lname"),
-            "user_email": request.form.get("user_email"),
+        profile_details = {
+            "fname": request.get("fname"),
+            "lname": request.get("lname"),
+            "user_email": request.get("user_email"),
         }
         return redirect(url_for("edit_profile"))
 
-        mongo.db.user_profile.update_one({"_id": ObjectId(user_profile_id)}, {"$set": user_detail})
+        update_details = mongo.db.user_profile.update_one({"_id": ObjectId(user_profile_id)}, {"$set": profile_details})
         flash("Details Successfully Updated")
-    
-    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(user_profile_id)})
+    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(update_details)})
     return render_template("edit_profile.html", user_details=user_details)
 
 
-@app.route("/delete_user/<user_profile>")
-def delete_user(user_profile):
-    mongo.db.users.delete_one({"_id": ObjectId(user_profile)})
+@app.route("/delete_user/<user_profile_id>")
+def delete_user(user_profile_id):
+    mongo.db.users.delete_one({"_id": ObjectId(user_profile_id)})
+    mongo.db.user_profile.delete_one({"_id": ObjectId(user_profile_id)})
     flash("Account Has Been Deleted")
     return redirect(url_for("index"))
 
