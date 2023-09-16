@@ -96,17 +96,29 @@ def signout():
     return redirect(url_for("signin"))
 
 
-@app.route("/edit_profile", methods=["GET", "POST"])
-def edit_profile():
+# user details from db
+@app.route("/user_details")
+def user_details():
+    user_profile = list(mongo.db.user_profile.find())
+    return render_template("profile.html", user_profile=user_profile)
+
+
+# edit user details in the db
+@app.route("/edit_details/<user_profile_id>", methods=["GET", "POST"])
+def edit_detials(user_profile_id):
     if request.method == "POST":
-        details = {
+        user_detail = {
             "fname": request.form.get("fname"),
             "lname": request.form.get("lname"),
             "user_email": request.form.get("user_email"),
         }
-        mongo.db.user_profile.insert_one(details)
-        flash("Account Details Updated")
-        return redirect(url_for("profile"))
+        return redirect(url_for("edit_profile"))
+
+        mongo.db.user_profile.update_one({"_id": ObjectId(user_profile_id)}, {"$set": user_detail})
+        flash("Details Successfully Updated")
+    
+    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(user_profile_id)})
+    return render_template("edit_profile.html", user_details=user_details)
 
 
 @app.route("/delete_user/<user_profile>")
