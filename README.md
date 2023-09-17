@@ -48,13 +48,12 @@ The third milestone project's objective is to make a website that contains front
 <a name="userexp"></a>
 # User Experience (UX)
 <a name="userstory"></a>
+
 ### First time visitor goals :
+
 ### Frequent user goals :
 
 <a name="design"></a>
-# Design
-## Abstract :
-
 <a name="wireframe"></a>
 ## Wireframing :
 ### Large screen view : 
@@ -66,20 +65,29 @@ The third milestone project's objective is to make a website that contains front
 <hr>
 
 <a name="tech"></a>
-# Technologies Used 
+# Technologies Used
+
 ### Languages Used :
+  - HTML [https://developer.mozilla.org/en-US/docs/Web/HTML]
+  - CSS [https://developer.mozilla.org/en-US/docs/Web/CSS]
+  - Javascript/JQuery [https://api.jquery.com]
+  - Python3 [https://docs.python.org/3/]
 
 #### Front-end :
   - Materialize [https://materializecss.com]
   - Google fonts [https://fonts.google.com]
 
-### Emailjs API :
+### Back-end :
+  - Python3 [https://docs.python.org/3/]
+  - Flask [https://flask.palletsprojects.com/en/2.3.x/#user-s-guide]
+  - MongoDB [https://www.mongodb.com/docs/]
+
 ### Environment Used
 
-1. Github - (https://github.com)
+1. Github - [https://github.com]
     - Was used to store the repository and files for the project.
 
-2. Codeanywhere - (https://codeanywhere.com)
+2. Codeanywhere - [https://codeanywhere.com]
     - was used as code editor for the project.
 
 <hr>
@@ -140,6 +148,33 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 <hr>
+
+### Heroku Deployment 
+
+The project was deployed on Heroku from the master branch. 
+In order to successfully deploy the project, the following is necessary:
+
+1. create a requirements.txt and Procfile within the CLI :
+
+a. -- pip3 freeze --local > requirements.txt 
+b. -- echo web: python app.py > Procfile
+
+2. Sign in to Heroku and create a new app.
+
+Select Deploy tab, then Deployment Method and select Github.
+Under Connect to Github enter your details and connect your repository.
+Followed by settings and select Config Vars and then Reveal Config Vars.
+
+In Config Vars use the env.py file variables and values:
+
+-- IP : 0.0.0.0 
+-- PORT : 5000 
+-- DATABASE_URI : [your_db_URI] 
+-- SECRET_KEY : [your_secret_key]
+
+Under the Deploy tab go to Automatic Deploys and press Enable.
+Under Manual Deploy, choose Master and click Deploy Branch.
+Heroku will begin building the app. When it is ready, you can click Open app to launch it.
 
 <a name="acknowledgements"></a>
 # Acknowledgements
