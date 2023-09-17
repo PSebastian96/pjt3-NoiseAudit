@@ -128,6 +128,11 @@ As a first time visitor, I want to give basic information about the website, the
 <a name="sources"></a>
 # Sources
 
+### Images:
+- Pexels [https://www.pexels.com]
+
+### Wireframe:
+- Diagrams [https://app.diagrams.net]
 
 <hr>
 
