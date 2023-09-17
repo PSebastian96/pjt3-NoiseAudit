@@ -67,11 +67,32 @@ As a first time visitor, I want to give basic information about the website, the
 
 <a name="wireframe"></a>
 ## Wireframing :
-### Large screen view : 
+### Site map :
+1. Non user web view:
+<img width="497" alt="blog_non_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/1277a1f2-56fd-4034-86db-9216a0d41a4b">
+
+2. User web view:
+<img width="491" alt="blog_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/1529815f-e432-4abf-a45a-f04a2f6d3aac">
+
+### Large screen view :
+<img width="384" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/52d5637c-a439-47af-8d8b-dd83be8953f8">
+
 ### Tablet view : 
+<img width="384" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d68501ab-fdf7-4a89-8757-2b9a7ce4885c">
+
 ### Phone view :
-## Site map :
+<img width="167" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/ff66f142-4c75-4e03-9f8c-e582df0dd91c">
+
 ## Visuals :
+
+### Large screen view :
+
+
+### Tablet view :
+
+
+### Phone view :
+
 
 <hr>
 
