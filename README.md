@@ -71,10 +71,12 @@ As a first time visitor, I want to give basic information about the website, the
 ### Site map :
 
 1. Non member web view:
-blog_non_user_view.png
+<img width="497" alt="blog_non_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/c2615849-81df-4ec4-9a79-b185b23c1f08">
+
 
 2. Member web view:
-blog_user_view.png
+<img width="491" alt="blog_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d8ececf1-046e-446a-8efe-8e03dbe45b0e">
+
 
 ### Large screen view :
 image.png
@@ -87,13 +89,16 @@ image.png
 
 ## Visuals :
 ### Large screen view : 
-large_view.png
+<img width="610" alt="large_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4dee31bc-afe8-4189-a289-fc5766109620">
+
 
 ### Tablet view : 
-tablet_view.png
+<img width="265" alt="tablet_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b204bbe4-4997-42a9-b445-b658930a31d6">
+
 
 ### Phone view :
-mobile_view.png
+<img width="208" alt="mobile_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/ce35b443-518d-4853-b3f5-37defb350696">
+
 
 <hr>
 
