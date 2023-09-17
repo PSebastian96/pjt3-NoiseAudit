@@ -122,7 +122,7 @@ def edit_profile(profile_id):
         flash("Details Successfully Updated")
 
     profile_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
-    return render_template("edit_profile.html", profile_details=profile_details)
+    return render_template("edit_profile.html", profile_details=profile_details, _id=_id)
 
 # sign out function
 @app.route("/signout")

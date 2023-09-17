@@ -14,35 +14,18 @@
     </div>
 </div>
 
-
-<ul class="collapsible popout">
-    <li>
-        <div class="collapsible-header grey darken-2">
-          <div class="col s12">
-            <p class="green-text grey darken-2"><strong>Create a blog!</strong></p>
-          </div>
-        </div>
-        <div class="collapsible-body center">
-          <p class="green-text">Create your noise audit {{ username }}!</p>
-           <a href="#" class="btn-small green lighten-1">Blog</a>
-        </div>
-    </li>
-    <li>
-      <div class="collapsible-header s12 m6 white-text grey darken-2">
-        <div class="col s12 grey darken-2">
-          <strong>Account details</strong>
-        </div>
-      </div>
-      <div class="collapsible-body center">
-        <form class="col s12" method="POST" action="{{ url_for('add_profile') }}">
-            <!-- first name -->
-            <div class="row">
-                    <div class="input-field col s12">
+<div class="row center">
+    <div class="col s12 m8 offset-m2">
+        <h4 class="txt-clr">Add you detials</h4>
+    <form class="col s12" method="POST" action="{{ url_for('add_profile') }}">
+        <!-- first name -->
+        <div class="row">
+                <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                         <input id="fname" name="fname" type="text" minlength="3" maxlength="20" class="validate txt-clr" required/>
                         <label for="fname">First name:</label>
-                    </div>
-            </div>
+                </div>
+        </div>
             <!-- last name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -69,21 +52,8 @@
             </div>
             <!-- submit button -->
             <button type="submit" class="btn-small light-green darken-3 text-shadow">Add Details</button>
-        </form>
-      </div>
-    </li>
-    <li>
-        <div class="collapsible-header white-text grey darken-2">
-          <div class="col s12">
-            <strong class="red-text grey darken-2">DangerZone</strong>
-          </div>
-        </div>
-        <div class="collapsible-body center">
-          <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
-              will delete your account and details permanently!</p>
-           <a href="#" class="btn-small red lighten-1">Delete Account</a>
-        </div>
-    </li>
-  </ul>
+    </form>
+    </div>
+</div>
 
 {% endblock%}
