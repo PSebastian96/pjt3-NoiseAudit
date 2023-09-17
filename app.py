@@ -109,7 +109,7 @@ def add_profile():
 
 
 @app.route("/edit_profile/<profile_id>", methods=["GET", "POST"])
-def edit_details(profile_id):
+def edit_profile(profile_id):
     if request.method == "POST":
         submit = {
             "fname": request.form.get("fname"),
@@ -122,7 +122,8 @@ def edit_details(profile_id):
         flash("Details Successfully Updated")
 
     profile_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
-    return render_template("edit_profile.html", profile_details=profile_details, _id=_id)
+    return render_template("edit_profile.html", profile_id=profile_details)
+
 
 # sign out function
 @app.route("/signout")
