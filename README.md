@@ -67,11 +67,33 @@ As a first time visitor, I want to give basic information about the website, the
 
 <a name="wireframe"></a>
 ## Wireframing :
-### Large screen view : 
+
+### Site map :
+
+1. Non member web view:
+blog_non_user_view.png
+
+2. Member web view:
+blog_user_view.png
+
+### Large screen view :
+image.png
+
 ### Tablet view : 
+image.png
+
 ### Phone view :
-## Site map :
+image.png
+
 ## Visuals :
+### Large screen view : 
+large_view.png
+
+### Tablet view : 
+tablet_view.png
+
+### Phone view :
+mobile_view.png
 
 <hr>
 
