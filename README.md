@@ -79,13 +79,16 @@ As a first time visitor, I want to give basic information about the website, the
 
 
 ### Large screen view :
-image.png
+<img width="387" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/2c3beed2-2d18-41c4-aeb2-51a7fa2c82c6">
+
 
 ### Tablet view : 
-image.png
+<img width="387" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a70c9a6a-0b18-45fd-9fe8-d03e60b489f7">
+
 
 ### Phone view :
-image.png
+<img width="167" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d3fdf1a9-309e-4917-91ad-b3cafcf49c75">
+
 
 ## Visuals :
 ### Large screen view : 
