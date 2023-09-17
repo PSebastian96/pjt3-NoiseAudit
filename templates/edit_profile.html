@@ -33,45 +33,52 @@
         </div>
       </div>
       <div class="collapsible-body center">
-        <form class="col s12" method="POST" action="{{ url_for('edit_details', user_profile_id=user_details._id) }}">
-            <!-- users username -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="username" name="username" value="{{ session[user] }}" type="text"/>
-                    <label for="username">Username :</label>
+            <form class="col s12" method="POST" action="{{ url_for('edit_profile', profile_id=profile_details._id) }}">
+                <!-- first name -->
+                <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                            <input id="fname" name="fname" value="{{ profile_details.fname }}" type="text" class="validate" required/>
+                            <label for="fname">First name :</label>
+                        </div>
                 </div>
-            </div>
-            <!-- first name -->
-            <div class="row">
+                <!-- last name -->
+                <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                        <input id="fname" name="fname" value="{{ user_details.fname }}" type="text" class="validate" required/>
-                        <label for="fname">First name :</label>
+                        <input id="lname" name="lname" value="{{ profile_details.lname }}" type="text" class="validate" required/>
+                        <label for="lname">Last name :</label>
                     </div>
-            </div>
-            <!-- last name -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="lname" name="lname" value="{{ user_details.lname }}" type="text" class="validate" required/>
-                    <label for="lname">Last name :</label>
                 </div>
-            </div>
-            <!-- users email -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="user_email" name="user_email" value="{{ user_details.user_email }}" type="text" class="validate" required/>
-                    <label for="user_email">Email :</label>
+                <!-- users email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                        <input id="user_email" name="user_email" value="{{ profile_details.user_email }}" type="text" class="validate" required/>
+                        <label for="user_email">Email :</label>
+                    </div>
                 </div>
-            </div>
-        </form>
-        <!-- cancel button -->
-        <a href="{{ url_for('profile') }}" class="btn red text-shadow">Cancel</a>
-        <!-- submit button -->
-        <button type="submit" class="btn light-green darken-1 text-shadow">Edit Details</button>
-      </div>
+                <!-- user number-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                        <input id="phone_num" name="phone_num" value="{{ profile_details.phone_num }}" type="text" class="validate txt-clr" required/>
+                        <label for="phone_num">Phone number:</label>
+                    </div>
+                </div>
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <!-- cancel button -->
+                        <a href="{{ url_for('profile') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i></a>
+                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                            Edit Task <i class="fas fa-edit right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+       </div>
     </li>
     <li>
         <div class="collapsible-header white-text grey darken-2">
@@ -82,7 +89,7 @@
         <div class="collapsible-body center">
           <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
               will delete your account and details permanently!</p>
-           <a href="{{ url_for('delete_user', user_profile=details._id) }}" class="btn-small red lighten-1">Delete Account</a>
+           <a href="#" class="btn-small red lighten-1">Delete Account</a>
         </div>
     </li>
   </ul>

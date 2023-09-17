@@ -23,6 +23,7 @@ def index():
     return render_template("index.html")
 
 
+# register function
 @app.route("/join", methods=["GET", "POST"])
 def join():
     if request.method == "POST":
@@ -48,6 +49,7 @@ def join():
     return render_template("join.html")
 
 
+# login function
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
     if request.method == "POST":
@@ -76,18 +78,53 @@ def signin():
     return render_template("signin.html")
 
 
+# profile template
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    user_details = list(mongo.db.user_profile.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, user_details=user_details)
 
     return redirect(url_for("signin"))
 
 
+@app.route('/add_profile', methods=['GET', 'POST'])
+def add_profile():
+    if request.method == 'POST':
+        profile_details = {
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
+            "user_email": request.form.get("user_email"),
+            "phone_num": request.form.get("phone_num"),
+            "profile_by": session["user"]
+        }
+        mongo.db.user_profile.insert_one(profile_details)
+        flash("Details Successfully Added")
+        return redirect(url_for("profile"))
+    return render_template("add_profile.html")
+
+
+@app.route("/edit_profile/<profile_id>", methods=["GET", "POST"])
+def edit_profile(profile_id):
+    if request.method == "POST":
+        submit = {
+            "fname": request.form.get("category_name"),
+            "lname": request.form.get("task_name"),
+            "user_email": request.form.get("task_description"),
+            "phone_num": is_urgent,
+            "profile_by": session["user"]
+        }
+        mongo.db.user_profile.update_one({"_id": ObjectId(profile_id)}, {"$set": submit})
+        flash("Details Successfully Updated")
+
+    profile_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
+    return render_template("edit_profile.html", profile_details=profile_details)
+
+# sign out function
 @app.route("/signout")
 def signout():
     # remove user from session cookie
@@ -96,36 +133,11 @@ def signout():
     return redirect(url_for("signin"))
 
 
-# user details from db
-@app.route("/user_details")
-def user_details():
-    user_profile = list(mongo.db.user_profile.find())
-    return render_template("profile.html", user_profile=user_profile)
-
-
-# edit user details in the db
-@app.route("/edit_details/<user_profile_id>", methods=["GET", "POST"])
-def edit_detials(user_profile_id):
-    if request.method == "POST":
-        profile_details = {
-            "fname": request.get("fname"),
-            "lname": request.get("lname"),
-            "user_email": request.get("user_email"),
-        }
-        return redirect(url_for("edit_profile"))
-
-        update_details = mongo.db.user_profile.update_one({"_id": ObjectId(user_profile_id)}, {"$set": profile_details})
-        flash("Details Successfully Updated")
-    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(update_details)})
-    return render_template("edit_profile.html", user_details=user_details)
-
-
-@app.route("/delete_user/<user_profile_id>")
-def delete_user(user_profile_id):
-    mongo.db.users.delete_one({"_id": ObjectId(user_profile_id)})
-    mongo.db.user_profile.delete_one({"_id": ObjectId(user_profile_id)})
+@app.route("/delete_user/<username>")
+def delete_user(username):
+    mongo.db.users.delete_one(username)
     flash("Account Has Been Deleted")
-    return redirect(url_for("index"))
+    return redirect(url_for("signin"))
 
 
 @app.route("/get_blogs")
