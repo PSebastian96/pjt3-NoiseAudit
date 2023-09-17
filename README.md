@@ -11,6 +11,7 @@ Third Milestone Project - Code Institute
 *   [Student Details](#student)
 *   [Introduction](#intro)
 *   [User Experience (UX)](#userexp)
+    *   [Design](#design)
     *   [User Stories](#userstory)
     *   [Wireframing](#wireframe)
 *   [Technologies used](#tech)
@@ -46,6 +47,12 @@ The third milestone project's objective is to make a website that contains front
 
 <a name="userexp"></a>
 # User Experience (UX)
+<a name="desing"></a>
+
+### Design
+
+
+
 <a name="userstory"></a>
 
 ### First time visitor goals :
@@ -71,37 +78,29 @@ As a first time visitor, I want to give basic information about the website, the
 ### Site map :
 
 1. Non member web view:
-<img width="497" alt="blog_non_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/c2615849-81df-4ec4-9a79-b185b23c1f08">
-
+blog_non_user_view.png
 
 2. Member web view:
-<img width="491" alt="blog_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d8ececf1-046e-446a-8efe-8e03dbe45b0e">
-
+blog_user_view.png
 
 ### Large screen view :
-<img width="387" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/2c3beed2-2d18-41c4-aeb2-51a7fa2c82c6">
-
+image.png
 
 ### Tablet view : 
-<img width="387" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a70c9a6a-0b18-45fd-9fe8-d03e60b489f7">
-
+image.png
 
 ### Phone view :
-<img width="167" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d3fdf1a9-309e-4917-91ad-b3cafcf49c75">
-
+image.png
 
 ## Visuals :
 ### Large screen view : 
-<img width="610" alt="large_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4dee31bc-afe8-4189-a289-fc5766109620">
-
+large_view.png
 
 ### Tablet view : 
-<img width="265" alt="tablet_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b204bbe4-4997-42a9-b445-b658930a31d6">
-
+tablet_view.png
 
 ### Phone view :
-<img width="208" alt="mobile_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/ce35b443-518d-4853-b3f5-37defb350696">
-
+mobile_view.png
 
 <hr>
 
