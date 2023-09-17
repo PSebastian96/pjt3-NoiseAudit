@@ -112,10 +112,10 @@ def add_profile():
 def edit_profile(profile_id):
     if request.method == "POST":
         submit = {
-            "fname": request.form.get("category_name"),
-            "lname": request.form.get("task_name"),
-            "user_email": request.form.get("task_description"),
-            "phone_num": is_urgent,
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
+            "user_email": request.form.get("user_email"),
+            "phone_num": request.form.get("phone_num"),
             "profile_by": session["user"]
         }
         mongo.db.user_profile.update_one({"_id": ObjectId(profile_id)}, {"$set": submit})
