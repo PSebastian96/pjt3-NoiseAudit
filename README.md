@@ -161,15 +161,15 @@ b. -- echo web: python app.py > Procfile
 
 2. Sign in to Heroku and create a new app.
 
-Select Deploy tab, then Deployment Method and select Github.
-Under Connect to Github enter your details and connect your repository.
+Select Deploy tab, then Deployment Method and select Github. <br>
+Under Connect to Github enter your details and connect your repository. <br>
 Followed by settings and select Config Vars and then Reveal Config Vars.
 
 In Config Vars use the env.py file variables and values:
 
--- IP : 0.0.0.0 
--- PORT : 5000 
--- DATABASE_URI : [your_db_URI] 
+-- IP : 0.0.0.0 <br>
+-- PORT : 5000 <br>
+-- DATABASE_URI : [your_db_URI] <br>
 -- SECRET_KEY : [your_secret_key]
 
 Under the Deploy tab go to Automatic Deploys and press Enable.
