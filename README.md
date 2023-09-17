@@ -49,9 +49,16 @@ The third milestone project's objective is to make a website that contains front
 # User Experience (UX)
 <a name="desing"></a>
 
-### Design
+### Design :
 
-
+- Desing of the website is very minimalistic. The primary colours are black, green and white.
+- The colour black is used to style the menu bar and footer.
+- Body of the website is black/grey colour.
+- The text is mostly green, which pairs with the black background colour.
+- Menu links are green when hovered over as well as the footer links.
+- For the Logo, I have used the 'Rubik Distressed' google font family.
+- For the menu links, 'Henny Penny' google font family is used.
+- For the titles, I have used the 'Gloria Hallelujah' google font.
 
 <a name="userstory"></a>
 
