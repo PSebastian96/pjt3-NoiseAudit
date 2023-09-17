@@ -76,6 +76,7 @@ The third milestone project's objective is to make a website that contains front
 #### Front-end :
   - Materialize [https://materializecss.com]
   - Google fonts [https://fonts.google.com]
+  - Font Awesome [https://fontawesome.com]
 
 ### Back-end :
   - Python3 [https://docs.python.org/3/]
