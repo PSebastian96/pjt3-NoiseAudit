@@ -109,7 +109,7 @@ def add_profile():
 
 
 @app.route("/edit_profile/<profile_id>", methods=["GET", "POST"])
-def edit_profile(profile_id):
+def edit_details(profile_id):
     if request.method == "POST":
         submit = {
             "fname": request.form.get("fname"),
