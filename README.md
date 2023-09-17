@@ -73,6 +73,18 @@ As a first time visitor, I want to give basic information about the website, the
 ## Site map :
 ## Visuals :
 
+<<<<<<< HEAD
+=======
+### Large screen view :
+<img width="610" alt="large_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/051185d5-ed40-47d4-8d01-deae722fbc29">
+
+### Tablet view :
+<img width="265" alt="tablet_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/11969ae7-290c-4583-8fe1-5b9d5362b9dd">
+
+### Phone view :
+<img width="208" alt="mobile_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/c33abc0b-b432-470d-820e-29a34052123b">
+
+>>>>>>> a169331c4ec9236d1c3dcd7c0f598f67714a8ed3
 <hr>
 
 <a name="tech"></a>
