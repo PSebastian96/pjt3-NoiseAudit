@@ -56,11 +56,34 @@ The third milestone project's objective is to make a website that contains front
 <a name="design"></a>
 <a name="wireframe"></a>
 ## Wireframing :
-### Large screen view : 
-### Tablet view : 
+### Site map :
+
+1. Non user web view :
+<img width="497" alt="blog_non_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/7f88dc4d-de11-46f8-bdec-945d4cfc9779">
+
+2. User web view :
+<img width="491" alt="blog_user_view" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/5bc1d10d-2904-4c39-9524-6ed79bf8535e">
+
+### Large screen view :
+
+<img width="391" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/7a53eac7-942d-4da4-aa5d-5adb27248b37"> <br>
+
+<img width="610" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/15f7d91c-0082-463d-b47e-fc7d4c2d50e5">
+
+
+### Tablet view :
+
+<img width="391" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/7a53eac7-942d-4da4-aa5d-5adb27248b37"> <br>
+
+<img width="267" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d02307dd-8159-4918-b372-488d5877da7d">
+
+
 ### Phone view :
-## Site map :
-## Visuals :
+
+<img width="167" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/ac15811b-64fa-46b2-b5b5-88a4d5d75e42"> <br>
+
+<img width="206" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/1d315432-17af-4a37-805c-d2338b637a94">
+
 
 <hr>
 
