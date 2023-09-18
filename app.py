@@ -94,11 +94,6 @@ def profile(username):
     return redirect(url_for("signin"))
 
 
-@app.route('/back_to_profile')
-def back_to_profile():
-    return redirect(url_for('profile'))
-
-
 @app.route('/add_profile', methods=['GET', 'POST'])
 def add_profile():
     if request.method == 'POST':
@@ -128,8 +123,9 @@ def edit_profile(profile_id):
         mongo.db.user_profile.update_one({"_id": ObjectId(profile_id)}, {"$set": submit})
         flash("Details Successfully Updated")
 
-    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
-    return render_template("edit_profile.html", profile_id=user_details)
+    user_id = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
+    print(user_id)
+    return render_template("edit_profile.html", user_id=user_id)
 
 
 # sign out function
