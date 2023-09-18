@@ -87,9 +87,16 @@ def profile(username):
     user_details = list(mongo.db.user_profile.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username, user_details=user_details)
+        return render_template(
+            "profile.html", username=username,
+            user_details=user_details)
 
     return redirect(url_for("signin"))
+
+
+@app.route('/back_to_profile')
+def back_to_profile():
+    return redirect(url_for('profile'))
 
 
 @app.route('/add_profile', methods=['GET', 'POST'])
@@ -104,7 +111,7 @@ def add_profile():
         }
         mongo.db.user_profile.insert_one(profile_details)
         flash("Details Successfully Added")
-        return redirect(url_for("profile"))
+        return redirect(url_for("add_profile"))
     return render_template("add_profile.html")
 
 
@@ -121,8 +128,8 @@ def edit_profile(profile_id):
         mongo.db.user_profile.update_one({"_id": ObjectId(profile_id)}, {"$set": submit})
         flash("Details Successfully Updated")
 
-    profile_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
-    return render_template("edit_profile.html", profile_id=profile_details)
+    user_details = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
+    return render_template("edit_profile.html", profile_id=user_details)
 
 
 # sign out function
