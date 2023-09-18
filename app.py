@@ -124,7 +124,6 @@ def edit_profile(profile_id):
         flash("Details Successfully Updated")
 
     user_id = mongo.db.user_profile.find_one({"_id": ObjectId(profile_id)})
-    print(user_id)
     return render_template("edit_profile.html", user_id=user_id)
 
 
@@ -137,9 +136,9 @@ def signout():
     return redirect(url_for("signin"))
 
 
-@app.route("/delete_user/<username>")
-def delete_user(username):
-    mongo.db.users.delete_one(username)
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
     flash("Account Has Been Deleted")
     return redirect(url_for("signin"))
 

@@ -33,12 +33,12 @@
         </div>
       </div>
       <div class="collapsible-body center">
-            <form class="col s12" method="POST" action="{{ url_for('edit_profile', profile_id=profile_details._id) }}">
+            <form class="col s12" method="POST" action="{{ url_for('edit_profile', profile_id=user_id['_id']) }}">
                 <!-- first name -->
                 <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                            <input id="fname" name="fname" value="{{ profile_details.fname }}" type="text" class="validate" required/>
+                            <input id="fname" name="fname" value="{{ user_id['fname'] }}" type="text" class="validate txt-clr" required/>
                             <label for="fname">First name :</label>
                         </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                        <input id="lname" name="lname" value="{{ profile_details.lname }}" type="text" class="validate" required/>
+                        <input id="lname" name="lname" value="{{ user_id['lname'] }}" type="text" class="validate txt-clr" required/>
                         <label for="lname">Last name :</label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                        <input id="user_email" name="user_email" value="{{ profile_details.user_email }}" type="text" class="validate" required/>
+                        <input id="user_email" name="user_email" value="{{ user_id['user_email'] }}" type="text" class="validate txt-clr" required/>
                         <label for="user_email">Email :</label>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                        <input id="phone_num" name="phone_num" value="{{ profile_details.phone_num }}" type="text" class="validate txt-clr" required/>
+                        <input id="phone_num" name="phone_num" value="{{ user_id['phone_num'] }}" type="text" class="validate txt-clr" required/>
                         <label for="phone_num">Phone number:</label>
                     </div>
                 </div>

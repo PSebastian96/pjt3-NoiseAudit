@@ -41,11 +41,12 @@
         <p class="txt-clr">Num: {{ detail.phone_num }}</p>
         <!-- adding -->
         <a href="{{ url_for('add_profile') }}" class="btn-small orange darken-3">Add Details</a>
-        {% endfor %}
         <!-- editing -->
-        <a href="{{ url_for( 'edit_profile', profile_id=)}}" class="btn-small light-blue lighten-1">Edit Details</a>
+        <a href="{{ url_for( 'edit_profile', profile_id=detail['_id'])}}" class="btn-small light-blue lighten-1">Edit Details</a>
+        {% endfor %}
         </div>
-      {% endif %}
+        
+        {% endif %}
     </li>
     <li>
         <div class="collapsible-header white-text grey darken-2">
@@ -56,7 +57,7 @@
         <div class="collapsible-body center">
           <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
               will delete your account and details permanently!</p>
-           <a href="{{ url_for('delete_user' , profile_id=detail._id )}}" class="btn-small red lighten-1">Delete Account</a>
+           <a href="#" class="btn-small red lighten-1">Delete Account</a>
         </div>
     </li>
   </ul>
