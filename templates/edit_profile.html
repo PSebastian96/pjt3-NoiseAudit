@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row head-padding">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-3">
+         <h3 class="center-align GloriaHallelujah">Edit your details {{ username }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_details', user_id=users['_id']) }}">
+      <div class="card-panel">
+            <!-- firstname -->
+            <div class="row">
+            <div class="input-field col s12 align-center">
+                    <i class="fa-solid fa-user prefix purple-text"></i>
+                    <input
+                    id="fname"
+                    name="fname"
+                    type="text"
+                    minlength="3"
+                    maxlength="35"
+                    pattern="^[a-zA-Z0-9]{3,35}$"
+                    class="validate txt-clr"
+                    required/>
+                    <label for="fname">First Name</label>
+            </div>
+            </div>
+            <!-- lastname -->
+            <div class="row">
+            <div class="input-field col s12 align-center">
+                    <i class="fa-solid fa-user prefix purple-text"></i>
+                    <input
+                    id="lname"
+                    name="lname"
+                    type="text"
+                    minlength="3"
+                    maxlength="35"
+                    pattern="^[a-zA-Z0-9]{3,35}$"
+                    class="validate txt-clr"
+                    required/>
+                    <label for="lname">Last Name</label>
+            </div>
+            </div>
+            <!-- emailsection -->
+            <div class="row">
+            <div class="input-field col s12 align-center">
+                    <i class="fa-solid fa-envelope prefix blue-text"></i>
+                    <input
+                    id="user_email"
+                    name="user_email"
+                    type="text"
+                    class="validate txt-clr"
+                    required/>
+                    <label for="user_email">Email</label>
+            </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row">
+            <div class="col s12 center-align">
+              <!-- cancel button -->
+              <a href="{{ url_for('profile', username=session['user']) }}" class="btn red text-shadow">
+                Back 
+              </a>
+              <!-- confirm button -->
+              <button type="submit" class="btn light-blue darken-1 text-shadow">
+                Edit Details 
+              </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

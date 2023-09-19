@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+.GloriaHallelujah {
+    font-family: 'Gloria Hallelujah', cursive;
+    color:#68dc64;
+}
+
 /* navbar style */
 
 .nav-wrapper {

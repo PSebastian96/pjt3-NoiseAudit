@@ -37,7 +37,10 @@ def join():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "fname": request.form.get("lname").lower(),
+            "lname": request.form.get("fname").lower(),
+            "user_email": request.form.get("user_email").lower()
         }
         mongo.db.users.insert_one(register)
 
@@ -91,6 +94,25 @@ def profile(username):
             "profile.html", username=username, users=users)
 
     return redirect(url_for("signin"))
+
+
+# edit profile details
+@app.route("/edit_details/<user_id>", methods=["GET", "POST"])
+def edit_details(user_id):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request.method == "POST":
+        submit = {
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
+            "user_email": request.form.get("user_email")
+        }
+        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": submit})
+        flash("Task Successfully Updated")
+
+    users = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("edit_profile.html", users=users, username=username)
 
 
 # sign out function

@@ -25,22 +25,36 @@
            <a href="#" class="btn-small green lighten-1">Blog</a>
         </div>
     </li>
+    {% for user in users %}
+    {% if session.user == user.username %}
+    <li>
+        <div class="collapsible-header grey darken-2">
+          <div class="col s12">
+            <p class="white-text grey darken-2"><strong>Account Details</strong></p>
+          </div>
+        </div>
+        <div class="collapsible-body center">
+          <p class="green-text">Username: {{ user.username }}</p>
+          <p class="green-text">First Name: {{  user.fname }}</p>
+          <p class="green-text">Last Name: {{  user.lname }}</p>
+          <p class="green-text">Email: {{  user.user_email }}</p>
+           <a href="{{ url_for('edit_details', user_id=user['_id']) }}" class="btn-small purple lighten-1">Edit Details</a>
+        </div>
+    </li>
     <li>
         <div class="collapsible-header white-text grey darken-2">
           <div class="col s12">
             <strong class="red-text grey darken-2">DangerZone</strong>
           </div>
         </div>
-        {% for user in users %}
-        {% if session.user == user.username %}
         <div class="collapsible-body center">
           <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
               will delete your account and details permanently!</p>
            <a href="{{ url_for('delete_user', user_id=user['_id']) }}" class="btn-small red lighten-1">Delete Account</a>
         </div>
-        {% endif %}
-        {% endfor %}
     </li>
+    {% endif %}
+    {% endfor %}
   </ul>
 
 {% endblock %}
