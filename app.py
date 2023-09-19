@@ -5,18 +5,26 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_ckeditor import CKEditor
 if os.path.exists("env.py"):
     import env
 
+# flask instance
 app = Flask(__name__)
 
+# app config for db
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+# mongo instance
 mongo = PyMongo(app)
 
+# ckeditor
+ckeditor = CKEditor(app)
 
+
+# home default page
 @app.route("/")
 @app.route("/index")
 def index():
@@ -134,16 +142,19 @@ def delete_user(user_id):
     return redirect(url_for("index"))
 
 
+# blog page template
 @app.route("/get_blogs")
 def get_blogs():
     return render_template("get_blogs.html")
 
 
+# contact page template
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
 
+# admin dashboard
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
