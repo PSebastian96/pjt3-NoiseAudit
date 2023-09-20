@@ -188,8 +188,8 @@ def edit_blog(blog_id):
         mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
         flash("Blog Successfully Edited")
 
-    blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    return render_template("edit_blog.html", blog=blog)
+    list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    return render_template("edit_blog.html", list_of_blogs=list_of_blogs)
 
 
 # delete blog function
