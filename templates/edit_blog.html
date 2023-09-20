@@ -2,6 +2,86 @@
 
 {% block content %}
 
-<h1>This is the main edit blog page</h1>
+<div class="row head-padding">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-3">
+         <h3 class="center-align GloriaHallelujah">Edit your Audit, {{ username }} !</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_blog', blog_id=blog['_id']) }}">
+            <!-- category selection -->
+                <div class="row grey darken-3">
+                    <div class="input-field col s12 grey darken-3">
+                        <i class="fas fa-folder-open prefix green-text"></i>
+                        <select
+                            id="category_name"
+                            name="category_name">
+                            {% for category in categories %}
+                            {% if category.category_name == blog.category_name %}
+                            <option value="" disabled selected required>{{ blog.category_name}}</option>
+                            {% endif %}
+                            <option required value="{{ category.category_name }}">
+                            {{- category.category_name -}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Categories</label>
+                    </div>
+                </div>
+            <!-- blogs title -->
+            <div class="row grey darken-3">
+            <div class="input-field col s12 align-center grey darken-3">
+                    <i class="fa-solid fa-paperclip prefix green-text"></i>
+                    <input
+                    id="blog_title"
+                    name="blog_title"
+                    type="text"
+                    minlength="3"
+                    maxlength="50"
+                    value="{{ blog.blog_title }}"/>
+                    <label for="blog_title">Audits Title</label>
+            </div>
+            </div>
+            <!-- date section -->
+            <div class="row grey darken-3">
+            <div class="input-field col s12 align-center grey darken-3">
+                    <i class="fa-solid fa-calendar-days prefix green-text"></i>
+                    <input
+                    id="created_date"
+                    name="created_date"
+                    type="text"
+                    value="{{ blog.created_date }}"/>
+                    <label for="created_date">Date</label>
+            </div>
+            </div>
+            <!-- content box -->
+            <div class="row grey darken-3">
+                <div class="input-field col s12 grey darken-3">
+                    <i class="fa-regular fa-pen-to-square prefix green-text"></i>
+                    <textarea id="blog_content" name="blog_content" rows="100" cols="100">
+                        {{- blog.blog_content -}}
+                    </textarea>
+                <label for="blog_content">Noise Audit</label>
+            </div>
+        </div>
+      </div>
+        <!-- buttons -->
+        <div class="row">
+            <div class="col s12 center-align">
+              <!-- cancel button -->
+              <a href="{{ url_for('get_blogs') }}" class="btn red text-shadow">
+                Back 
+              </a>
+              <!-- confirm button -->
+              <button type="submit" class="btn light-blue darken-1 text-shadow">
+                Edit Audit 
+              </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

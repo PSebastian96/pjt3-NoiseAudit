@@ -180,19 +180,27 @@ def add_blog():
 
 
 # edit blog function
-@app.route("/edit_blog/<blog_id>")
+@app.route("/edit_blog/<blog_id>", methods=["GET", "POST"])
 def edit_blog(blog_id):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    now = datetime.now()  # current date and time
+    date_time = now.strftime("%d/%m/%Y")
+
     if request.method == "POST":
         submit = {
+            "category_name": request.form.get("category_name"),
             "blog_title": request.form.get("blog_title"),
+            "created_date": request.form.get("created_date"),
             "blog_content": request.form.get("blog_content")
         }
         mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
         flash("Blog Successfully Edited")
 
-    list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_blog.html", list_of_blogs=list_of_blogs, categories=categories)
+    return render_template("edit_blog.html", blog=blog, categories=categories, date_time=date_time, username=username)
 
 
 # delete blog function
