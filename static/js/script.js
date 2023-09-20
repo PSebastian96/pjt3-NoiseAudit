@@ -7,3 +7,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+
+// modal 
+  $(document).ready(function(){
+    $('.modal').modal();
+  });

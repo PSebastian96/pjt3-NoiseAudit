@@ -24,7 +24,6 @@
                     type="text"
                     minlength="3"
                     maxlength="50"
-                    pattern="^[a-zA-Z0-9]{3,50}$"
                     class="validate txt-clr"
                     required/>
                     <label for="blog_title">Audits Title</label>
@@ -38,7 +37,8 @@
                     id="created_date"
                     name="created_date"
                     type="text"
-                    class="validate txt-clr"
+                    class="txt-clr"
+                    value="{{ date_time }}"
                     required/>
                     <label for="created_date">Date</label>
             </div>

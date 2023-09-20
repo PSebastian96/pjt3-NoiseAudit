@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -157,7 +158,10 @@ def read_blog(blog_id):
 def add_blog():
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    
+    now = datetime.now() # current date and time
+    date_time = now.strftime("%d/%m/%Y")
+    
     if request.method == "POST":
         blog = {
             "created_by": session["user"],
@@ -170,7 +174,7 @@ def add_blog():
         return redirect(url_for("get_blogs"))
 
     list_of_blogs = mongo.db.categories.find().sort("created_date", 1)
-    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username)
+    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username, date_time=date_time)
 
 
 # edit blog function

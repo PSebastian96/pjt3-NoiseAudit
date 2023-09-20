@@ -50,7 +50,22 @@
         <div class="collapsible-body center">
           <p class="red-text">If you wish to delete your account, please make sure that you made the right decision, as this 
               will delete your account and details permanently!</p>
-           <a href="{{ url_for('delete_user', user_id=user['_id']) }}" class="btn-small red lighten-1">Delete Account</a>
+           <!-- Modal Trigger -->
+           <a class="btn-small red lighten-1 modal-trigger" href="#modal1">Delete Account</a>
+
+           <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                <h4>Sad to see you go {{ username }} :(</h4>
+                <p>If you wish to delete your account, please make sure that you made the right decision, as this 
+                    will delete your account and details permanently!</p>
+                <p>Otherwise press "BACK" or click outside the modal box.</p>
+                </div>
+                <div class="modal-footer">
+                <a href="{{ url_for('profile', username=session['user'] ) }}" class="btn-small red lighten-1">Back</a>
+                <a href="{{ url_for('delete_user', user_id=user['_id']) }}" class="btn-small red lighten-1">Delete</a>
+                </div>
+            </div>
         </div>
     </li>
     {% endif %}
