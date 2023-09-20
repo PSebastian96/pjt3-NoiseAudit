@@ -12,11 +12,28 @@
 
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_blog') }}">
-      <div class="card-panel">
-            </div>
+            <!-- category selection -->
+                <div class="row">
+                    <div class="input-field col s12 options">
+                        <i class="fas fa-folder-open prefix green-text"></i>
+                        <select
+                            id="category_name"
+                            name="category_name"
+                            class="validate"
+                            required>
+                            <option value="" disabled selected required>Choose Category</option>
+                            {% for category in categories %}
+                            <option required value="{{ category.category_name }}">
+                            {{- category.category_name -}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Categories</label>
+                    </div>
+                </div>
             <!-- blogs title -->
             <div class="row">
-            <div class="input-field col s12 align-center">
+            <div class="input-field col s12 align-center options">
                     <i class="fa-solid fa-paperclip prefix green-text"></i>
                     <input
                     id="blog_title"
@@ -31,7 +48,7 @@
             </div>
             <!-- date section -->
             <div class="row">
-            <div class="input-field col s12 align-center">
+            <div class="input-field col s12 align-center options">
                     <i class="fa-solid fa-calendar-days prefix green-text"></i>
                     <input
                     id="created_date"
@@ -47,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-pen-to-square prefix green-text"></i>
-                    <textarea id="blog_content" name="blog_content" rows="10" cols="100" class="validate txt-clr"
+                    <textarea id="blog_content" name="blog_content" rows="100" cols="100" class="validate txt-clr"
                     required></textarea>
                 <label for="blog_content">Noise Audit</label>
             </div>

@@ -8,6 +8,9 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
   });
 
+// select form
+$("select").formSelect();
+
 // modal 
   $(document).ready(function(){
     $('.modal').modal();

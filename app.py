@@ -158,13 +158,14 @@ def read_blog(blog_id):
 def add_blog():
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
-    now = datetime.now() # current date and time
+
+    now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
-    
+
     if request.method == "POST":
         blog = {
             "created_by": session["user"],
+            "category_name": request.form.get("category_name"),
             "created_date": request.form.get("created_date"),
             "blog_title": request.form.get("blog_title"),
             "blog_content": request.form.get("blog_content")
@@ -174,7 +175,8 @@ def add_blog():
         return redirect(url_for("get_blogs"))
 
     list_of_blogs = mongo.db.categories.find().sort("created_date", 1)
-    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username, date_time=date_time)
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username, date_time=date_time, categories=categories)
 
 
 # edit blog function
@@ -189,7 +191,8 @@ def edit_blog(blog_id):
         flash("Blog Successfully Edited")
 
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    return render_template("edit_blog.html", list_of_blogs=list_of_blogs)
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_blog.html", list_of_blogs=list_of_blogs, categories=categories)
 
 
 # delete blog function

@@ -248,6 +248,16 @@ h4 i {
     padding: 2rem 2rem 1rem 2rem;
 }
 
+.options {
+    background-color: rgb(49, 47, 47);
+    color: #68dc64;
+}
+
+textarea {
+    width: 250px;
+    height: 500px;
+  }
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
