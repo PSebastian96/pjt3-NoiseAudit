@@ -146,7 +146,14 @@ def delete_user(user_id):
 @app.route("/get_blogs")
 def get_blogs():
     list_of_blogs = list(mongo.db.blogsdb.find())
-    return render_template("blogs.html", list_of_blogs=list_of_blogs)
+    return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
+
+
+# read blog
+@app.route("/blog/<blog_id>")
+def read_blog(blog_id):
+    blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    return render_template("get_blogs.html", blog=blog)
 
 
 # add blog function
@@ -154,27 +161,40 @@ def get_blogs():
 def add_blog():
     if request.method == "POST":
         blog = {
-            "category_name": request.form.get("category_name"),
-            "task_name": request.form.get("task_name"),
-            "task_description": request.form.get("task_description"),
-            "is_urgent": is_urgent,
-            "due_date": request.form.get("due_date"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "created_date": request.form.get("created_date"),
+            "blog_title": request.form.get("blog_title"),
+            "blog_content": request.form.get("blog_content")
         }
         mongo.db.blogsdb.insert_one(blog)
         flash("Audit Successfully Published")
         return redirect(url_for("blogs"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_blog.html", categories=categories)
+    list_of_blogs = mongo.db.categories.find().sort("created_date", 1)
+    return render_template("add_blog.html", list_of_blogs=list_of_blogs)
 
 
 # edit blog function
 @app.route("/edit_blog/<blog_id>")
+def edit_blog(blog_id):
+    if request.method == "POST":
+        submit = {
+            "blog_title": request.form.get("blog_title"),
+            "blog_content": request.form.get("blog_content")
+        }
+        mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
+        flash("Blog Successfully Edited")
+
+    blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    return render_template("edit_blog.html", blog=blog)
 
 
 # delete blog function
 @app.route("/delete_blog/<blog_id>")
+def delete_blog(blog_id):
+    mongo.db.blogsdb.delete_one({"_id": ObjectId(blog_id)})
+    flash("Audit Successfully Deleted")
+    return redirect(url_for("get_blogs"))
 
 
 # contact page template
