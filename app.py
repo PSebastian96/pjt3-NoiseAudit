@@ -145,7 +145,36 @@ def delete_user(user_id):
 # blog page template
 @app.route("/get_blogs")
 def get_blogs():
-    return render_template("get_blogs.html")
+    list_of_blogs = list(mongo.db.blogsdb.find())
+    return render_template("blogs.html", list_of_blogs=list_of_blogs)
+
+
+# add blog function
+@app.route("/add_blog", methods=["GET", "POST"])
+def add_blog():
+    if request.method == "POST":
+        blog = {
+            "category_name": request.form.get("category_name"),
+            "task_name": request.form.get("task_name"),
+            "task_description": request.form.get("task_description"),
+            "is_urgent": is_urgent,
+            "due_date": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.blogsdb.insert_one(blog)
+        flash("Audit Successfully Published")
+        return redirect(url_for("blogs"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_blog.html", categories=categories)
+
+
+# edit blog function
+@app.route("/edit_blog/<blog_id>")
+
+
+# delete blog function
+@app.route("/delete_blog/<blog_id>")
 
 
 # contact page template
