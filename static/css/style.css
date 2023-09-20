@@ -116,8 +116,9 @@ h4 i {
     background:linear-gradient(rgb(70, 70, 70), rgb(60, 60, 60), rgb(40, 40, 40), rgb(30, 30, 30));
 }
 
-.row .col {
-    padding: 0 0 2rem;
+.col .row {
+    padding: 2rem;
+    background-color:rgb(26, 25, 25);
 }
 
 .box-one {
@@ -243,10 +244,14 @@ h4 i {
     color: #68dc64;
 }
 
+.row .col .blog-card {
+    padding: 2rem 2rem 1rem 2rem;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
-    
+
     .rev-one {
         border: #68dc64 solid 2px;
         border-radius: 10px;

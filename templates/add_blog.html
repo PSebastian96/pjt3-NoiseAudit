@@ -2,6 +2,72 @@
 
 {% block content %}
 
-<h1>This is the main blog page</h1>
+<div class="row head-padding">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-3">
+         <h3 class="center-align GloriaHallelujah">Publish your NoiseAudit {{ username }} !</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_blog') }}">
+      <div class="card-panel">
+            </div>
+            <!-- blogs title -->
+            <div class="row">
+            <div class="input-field col s12 align-center">
+                    <i class="fa-solid fa-paperclip prefix green-text"></i>
+                    <input
+                    id="blog_title"
+                    name="blog_title"
+                    type="text"
+                    minlength="3"
+                    maxlength="50"
+                    pattern="^[a-zA-Z0-9]{3,50}$"
+                    class="validate txt-clr"
+                    required/>
+                    <label for="blog_title">Audits Title</label>
+            </div>
+            </div>
+            <!-- date section -->
+            <div class="row">
+            <div class="input-field col s12 align-center">
+                    <i class="fa-solid fa-calendar-days prefix green-text"></i>
+                    <input
+                    id="created_date"
+                    name="created_date"
+                    type="text"
+                    class="validate txt-clr"
+                    required/>
+                    <label for="created_date">Date</label>
+            </div>
+            </div>
+            <!-- content box -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-regular fa-pen-to-square prefix green-text"></i>
+                    <textarea id="blog_content" name="blog_content" rows="10" cols="100" class="validate txt-clr"
+                    required></textarea>
+                <label for="blog_content">Noise Audit</label>
+            </div>
+        </div>
+      </div>
+        <!-- buttons -->
+        <div class="row">
+            <div class="col s12 center-align">
+              <!-- cancel button -->
+              <a href="{{ url_for('profile', username=session['user']) }}" class="btn red text-shadow">
+                Back 
+              </a>
+              <!-- confirm button -->
+              <button type="submit" class="btn light-blue darken-1 text-shadow">
+                Submit Audit 
+              </button>
+            </div>
+        </div>
+    </form>
+</div>
+
 
 {% endblock %}

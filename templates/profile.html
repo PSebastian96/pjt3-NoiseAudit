@@ -22,7 +22,7 @@
         </div>
         <div class="collapsible-body center">
           <p class="green-text">Create your noise audit {{ username }}!</p>
-           <a href="#" class="btn-small green lighten-1">Blog</a>
+           <a href="{{ url_for('add_blog') }}" class="btn-small green lighten-1">Blog</a>
         </div>
     </li>
     {% for user in users %}

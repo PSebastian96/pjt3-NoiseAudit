@@ -5,7 +5,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_ckeditor import CKEditor
 if os.path.exists("env.py"):
     import env
 
@@ -19,9 +18,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 # mongo instance
 mongo = PyMongo(app)
-
-# ckeditor
-ckeditor = CKEditor(app)
 
 
 # home default page
@@ -159,6 +155,9 @@ def read_blog(blog_id):
 # add blog function
 @app.route("/add_blog", methods=["GET", "POST"])
 def add_blog():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
     if request.method == "POST":
         blog = {
             "created_by": session["user"],
@@ -168,10 +167,10 @@ def add_blog():
         }
         mongo.db.blogsdb.insert_one(blog)
         flash("Audit Successfully Published")
-        return redirect(url_for("blogs"))
+        return redirect(url_for("get_blogs"))
 
     list_of_blogs = mongo.db.categories.find().sort("created_date", 1)
-    return render_template("add_blog.html", list_of_blogs=list_of_blogs)
+    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username)
 
 
 # edit blog function
