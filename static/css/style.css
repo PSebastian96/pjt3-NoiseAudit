@@ -271,6 +271,15 @@ textarea {
 .coment-bx {
     width: 400px;
     height: 100px;
+    resize: none;
+}
+
+.resize-non {
+    resize: none;
+}
+
+.list-padding {
+    padding: 5rem 1rem 10rem 1rem;
 }
 
 /* Responsivness */
