@@ -258,6 +258,10 @@ textarea {
     height: 500px;
   }
 
+.border {
+    border-radius: 20px;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
