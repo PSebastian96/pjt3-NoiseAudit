@@ -147,10 +147,10 @@ def get_blogs():
 
 
 # read blog
-@app.route("/blog/<blog_id>")
+@app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
-    blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    return render_template("get_blogs.html", blog=blog)
+    list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    return render_template("read_blog.html", list_of_blogs=list_of_blogs)
 
 
 # add blog function
