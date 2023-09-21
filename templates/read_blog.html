@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<div class="row grey darken-1">
+<div class="row grey darken-1 head-padding">
 
     <div class="col s12 m8 offset-m2">
         <div class="card-panel center grey darken-4">
@@ -11,13 +11,30 @@
             <h5 class="green-text GloriaHallelujah">Author: {{ list_of_blogs.created_by }}</h5>
             <h5 class="green-text GloriaHallelujah">Date: {{ list_of_blogs.created_date}}</h5>
             <h5 class="green-text GloriaHallelujah">Category: {{ list_of_blogs.category_name }}</h5>
-            <div class="valign-wrapper content-border ">
+            <div class="valign-wrapper content-border">
              <p class="white-text GloriaHallelujah">{{ list_of_blogs.blog_content }}</p>
             </div>
         </div>
     </div>
+
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel center main-border">
+            
+                <h3 class="card-panel GloriaHallelujah">Comments</h3>
+            
+                <!-- comment-bx -->
+                <div class="row">
+                    <form>
+                        <div class="input-field col s12 grey darken-3 border"><i class="fa-solid fa-comment-dots prefix green-text"></i>
+                        <textarea id="blog_content" name="blog_content" class="validate white-text GloriaHallelujah coment-bx input-field"
+                        required></textarea>
+                        <label for="blog_content white-text GloriaHallelujah">Leave a comment</label>
+                        </div>        
+                    </form>
+                </div>
+        </div>
+    </div>
+
 </div>
-
-
 
 {% endblock %}
