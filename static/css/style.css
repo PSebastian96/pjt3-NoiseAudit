@@ -262,6 +262,12 @@ textarea {
     border-radius: 20px;
 }
 
+.content-border {
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #424242;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
