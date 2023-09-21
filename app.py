@@ -146,6 +146,14 @@ def get_blogs():
     return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
+# search blogs
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    search_blog = mongo.db.blogsdb.create_index({"$text": {"$search": query}})
+    return render_template("tasks.html", search_blog=search_blog)
+
+
 # read blog
 @app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
@@ -174,7 +182,7 @@ def add_blog():
         flash("Audit Successfully Published")
         return redirect(url_for("get_blogs"))
 
-    list_of_blogs = mongo.db.categories.find().sort("created_date", 1)
+    list_of_blogs = mongo.db.blogsdb.find().sort("created_date", 1)
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username, date_time=date_time, categories=categories)
 
