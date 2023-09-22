@@ -50,7 +50,13 @@
                 </div>
             </div>
         {% endfor %}
-    </div>    
+    </div>
+{% else %}
+    <div class="row list-padding">
+     <div class="col s12 m8 offset-m2">
+         <h3 class="red-text GloriaHallelujah center-align">No Results Found :(</h3>
+     </div>
+    </div>
 {% endif %}
 
 {% endblock %}
