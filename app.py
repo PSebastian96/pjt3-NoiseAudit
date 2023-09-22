@@ -152,8 +152,6 @@ def get_blogs():
 def search():
     if request.method == "POST":
         query = request.form.get("query")
-        # search by blog title
-        mongo.db.blogsdb.create_index([("blog_title", "text")])
         list_of_blogs = list(mongo.db.blogsdb.find({"$text": {"$search": query}}))
         return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
