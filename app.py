@@ -142,7 +142,8 @@ def delete_user(user_id):
 # blog page template
 @app.route("/get_blogs")
 def get_blogs():
-    list_of_blogs = list(mongo.db.blogsdb.find())
+    # display blogs by latest date
+    list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
@@ -151,6 +152,7 @@ def get_blogs():
 def search():
     if request.method == "POST":
         query = request.form.get("query")
+        # search by blog title
         mongo.db.blogsdb.create_index([("blog_title", "text")])
         list_of_blogs = list(mongo.db.blogsdb.find({"$text": {"$search": query}}))
         return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
