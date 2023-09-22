@@ -149,9 +149,11 @@ def get_blogs():
 # search blogs
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    search_blog = mongo.db.blogsdb.create_index({"$text": {"$search": query}})
-    return render_template("tasks.html", search_blog=search_blog)
+    if request.method == "POST":
+        query = request.form.get("query")
+        mongo.db.blogsdb.create_index([("blog_title", "text")])
+        list_of_blogs = list(mongo.db.blogsdb.find({"$text": {"$search": query}}))
+        return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
 # read blog
