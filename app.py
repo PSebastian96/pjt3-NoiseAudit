@@ -186,7 +186,9 @@ def add_blog():
 
     list_of_blogs = mongo.db.blogsdb.find().sort("created_date", 1)
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_blog.html", list_of_blogs=list_of_blogs, username=username, date_time=date_time, categories=categories)
+    return render_template("add_blog.html", list_of_blogs=list_of_blogs,
+                           username=username, date_time=date_time,
+                           categories=categories)
 
 
 # edit blog function
@@ -210,7 +212,8 @@ def edit_blog(blog_id):
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_blog.html", blog=blog, categories=categories, date_time=date_time, username=username)
+    return render_template("edit_blog.html", blog=blog, categories=categories,
+                           date_time=date_time, username=username)
 
 
 # delete blog function
@@ -219,6 +222,34 @@ def delete_blog(blog_id):
     mongo.db.blogsdb.delete_one({"_id": ObjectId(blog_id)})
     flash("Audit Successfully Deleted")
     return redirect(url_for("get_blogs"))
+
+
+# add comment
+@app.route("/add_comment", method=["GET", "POST"])
+def add_comment():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    now = datetime.now()  # current date and time
+    date_time = now.strftime("%d/%m/%Y")
+
+    if request.method == "POST":
+        comment = {
+            "comm_by": session["user"],
+            "comm_date": request.form.get("comm_date").insert_one(date_time),
+            "comm_content": request.form.get("comm_content")
+        }
+        mongo.db.blogsdb.insert_one(comment)
+        flash("Comment Successfully Added")
+        return redirect(url_for("read_blogs"))
+
+    list_of_comments = mongo.db.blogsdb.find().sort("comm_date", 1)
+    return render_template("read_blog.html", list_of_comments=list_of_comments,
+                           username=username, date_time=date_time)
+
+
+# edit comment
+# delete comment
 
 
 # contact page template
