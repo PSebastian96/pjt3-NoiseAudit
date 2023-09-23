@@ -225,7 +225,7 @@ def delete_blog(blog_id):
 
 
 # add comment
-@app.route("/add_comment", method=["GET", "POST"])
+@app.route("/add_comment", methods=["GET", "POST"])
 def add_comment():
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -239,13 +239,15 @@ def add_comment():
             "comm_date": request.form.get("comm_date").insert_one(date_time),
             "comm_content": request.form.get("comm_content")
         }
-        mongo.db.blogsdb.insert_one(comment)
+        mongo.db.commentsdb.insert_one(comment)
         flash("Comment Successfully Added")
         return redirect(url_for("read_blogs"))
 
-    list_of_comments = mongo.db.blogsdb.find().sort("comm_date", 1)
+    list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    list_of_comments = mongo.db.commentsdb.find().sort("comm_date", 1)
     return render_template("read_blog.html", list_of_comments=list_of_comments,
-                           username=username, date_time=date_time)
+                           username=username, date_time=date_time,
+                           list_of_blogs=list_of_blogs)
 
 
 # edit comment
