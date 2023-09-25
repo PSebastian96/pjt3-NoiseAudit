@@ -236,6 +236,7 @@ def add_comment():
     if request.method == "POST":
         comment = {
             "comm_by": session["user"],
+            "comm_id": request.form.get({"_id": ObjectId(blog_id)})
             "comm_date": request.form.get("comm_date").insert_one(date_time),
             "comm_content": request.form.get("comm_content")
         }
