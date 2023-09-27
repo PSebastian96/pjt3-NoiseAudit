@@ -254,7 +254,13 @@ def add_comment(blog_id):
 
 
 # edit comment
+
 # delete comment
+@app.route('/delete_comment/<comment_id>')
+def delete_comment(comment_id):
+    mongo.db.commentsdb.remove({"_id": ObjectId(comment_id)})
+    flash("Comment Successfully Deleted")
+    return redirect(url_for('read_blog'))
 
 
 # contact page template
