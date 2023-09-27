@@ -20,7 +20,7 @@
     <div class="grey darken-4 fixed">
         <div class="col hide-on-small-only m4 l2 grey darken-4">
           <ul class="section table-of-contents">
-            <li><a href="#" class="GloriaHallelujah">Back</a></li>
+            <li><a href="{{ url_for('get_blogs') }}" class="GloriaHallelujah">Back</a></li>
             <li><a href="#" class="GloriaHallelujah">Bookmark</a></li>
             <li><a href="{{ url_for('add_comment', blog_id=list_of_blogs._id) }}" class="GloriaHallelujah">Comment</a></li>
           </ul>
