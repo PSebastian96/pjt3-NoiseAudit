@@ -279,6 +279,14 @@ def delete_comment(comment_id):
     return redirect(url_for('get_blogs'))
 
 
+# my blogs page
+@app.route('/myblogs')
+def my_blogs():
+    # display blogs by latest date
+    list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
+    return render_template("my_blogs.html", list_of_blogs=list_of_blogs)
+
+
 # contact page template
 @app.route("/contact")
 def contact():
