@@ -74,11 +74,11 @@
                 <div class="row grey darken-2">
                     <div class="col s12 center-align">
                         <!-- cancel button -->
-                        <a href="{{ url_for('get_blogs') }}" class="btn red text-shadow">
+                        <a href="{{ url_for('read_blog', blog_id=blog['_id']) }}" class="btn red text-shadow">
                             Back 
                         </a>
                         <!-- confirm button -->
-                        <button onclick="M.toast({html: 'Blog Edited Successfully'})" type="submit" class="btn light-blue darken-1 text-shadow">
+                        <button type="submit" class="btn light-blue darken-1 text-shadow">
                             Edit Audit 
                         </button>
                     </div>

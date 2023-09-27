@@ -42,10 +42,6 @@
                     </div>
                     <div class="border grey darken-4">
                     <a href="{{ url_for('read_blog', blog_id=blog['_id']) }}" class="btn green GloriaHallelujah">Read</a>
-                    {% if session['user'] == blog.created_by %}
-                    <a href="{{ url_for('edit_blog', blog_id=blog['_id']) }}" class="btn orange GloriaHallelujah">Edit</a>
-                    <a href="{{ url_for('delete_blog', blog_id=blog['_id']) }}" class="btn red GloriaHallelujah">Delete</a>
-                    {% endif %}
                     </div>
                 </div>
             </div>
@@ -54,7 +50,7 @@
 {% else %}
     <div class="row list-padding">
      <div class="col s12 m8 offset-m2">
-         <h3 class="red-text GloriaHallelujah center-align">No Results Found :(</h3>
+         <h3 class="red-text GloriaHallelujah center-align">No Blogs Found :(</h3>
      </div>
     </div>
 {% endif %}

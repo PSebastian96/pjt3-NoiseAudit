@@ -152,7 +152,8 @@ def get_blogs():
 def search():
     if request.method == "POST":
         query = request.form.get("query")
-        list_of_blogs = list(mongo.db.blogsdb.find({"$text": {"$search": query}}))
+        list_of_blogs = list(mongo.db.blogsdb.find({"$text":
+                                                   {"$search": query}}))
         return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
@@ -160,7 +161,13 @@ def search():
 @app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    return render_template("read_blog.html", list_of_blogs=list_of_blogs)
+    list_of_comments = list(mongo.db.commentsdb.find().sort('comm_date', -1))
+    related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
+                                                    'comm_date', -1))
+    if list_of_blogs:
+        return render_template("read_blog.html", list_of_blogs=list_of_blogs,
+                               list_of_comments=list_of_comments,
+                               related_comment=related_comment)
 
 
 # add blog function
@@ -207,7 +214,8 @@ def edit_blog(blog_id):
             "created_date": request.form.get("created_date"),
             "blog_content": request.form.get("blog_content")
         }
-        mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
+        mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)},
+                                    {"$set": submit})
         flash("Blog Successfully Edited")
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
@@ -225,33 +233,50 @@ def delete_blog(blog_id):
 
 
 # add comment
-@app.route("/add_comment", methods=["GET", "POST"])
-def add_comment():
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+@app.route('/add_comment/<blog_id>', methods=['GET', 'POST'])
+def add_comment(blog_id):
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
 
-    if request.method == "POST":
+    if request.method == 'POST':
         comment = {
-            "comm_by": session["user"],
-            "comm_date": request.form.get("comm_date").insert_one(date_time),
-            "comm_content": request.form.get("comm_content")
+            "comm_id": blog_id,
+            "comm_date": date_time,
+            "comm_content": request.form.get("comm_content").lower(),
+            "comm_by": session["user"]
         }
         mongo.db.commentsdb.insert_one(comment)
         flash("Comment Successfully Added")
-        return redirect(url_for("read_blogs"))
+        return redirect(url_for('get_blogs'))
 
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    list_of_comments = mongo.db.commentsdb.find().sort("comm_date", 1)
-    return render_template("read_blog.html", list_of_comments=list_of_comments,
-                           username=username, date_time=date_time,
-                           list_of_blogs=list_of_blogs)
+    return render_template('add_comment.html', list_of_blogs=list_of_blogs)
 
 
 # edit comment
+@app.route('/edit_comment/<comment_id>', methods=["GET", "POST"])
+def edit_comment(comment_id):
+
+    if request.method == "POST":
+        submit = {
+            "comm_content": request.form.get("comm_content")
+        }
+        mongo.db.commentsdb.update_one({"_id": ObjectId(comment_id)},
+                                       {"$set": submit})
+        flash("Comment Successfully Updated")
+
+    list_of_comments = mongo.db.commentsdb.find_one({"_id":
+                                                    ObjectId(comment_id)})
+    return render_template("edit_comment.html",
+                           list_of_comments=list_of_comments)
+
+
 # delete comment
+@app.route('/delete_comment/<comment_id>')
+def delete_comment(comment_id):
+    mongo.db.commentsdb.delete_one({"_id": ObjectId(comment_id)})
+    flash("Comment Successfully Deleted")
+    return redirect(url_for('get_blogs'))
 
 
 # contact page template

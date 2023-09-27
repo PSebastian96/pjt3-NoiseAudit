@@ -5,7 +5,7 @@
 
 <div class="row grey darken-1 head-padding">
 
-    <div class="col s12 m8 offset-m2">
+    <div class="col s12 m8 l10 offset-m2">
         <div class="card-panel center grey darken-4">
             <h1 class="red-text GloriaHallelujah">{{ list_of_blogs.blog_title}}</h1>
             <h5 class="green-text GloriaHallelujah">Author: {{ list_of_blogs.created_by }}</h5>
@@ -17,42 +17,71 @@
         </div>
     </div>
 
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel center main-border">
-                <div class="card-panel grey darken-3">
-                    <h3 class="GloriaHallelujah">Comment Section</h3>
-                </div>
-                <!-- comment-bx -->
-                <div class="row">
-                    <form action="{{ url_for('add_comment')}}">
-                        <div class="input-field col s12 grey darken-3 border"><i class="fa-solid fa-comment-dots prefix green-text"></i>
-                            <textarea id="blog_content" name="blog_content" class="validate GloriaHallelujah coment-bx input-field"
-                            required></textarea>
-                            <label for="blog_content white-text GloriaHallelujah">Leave a comment</label>
-                            <!-- confirm button -->
-                            <button type="submit" class="btn green darken-1 text-shadow">
-                            Submit 
-                            </button>
-                        </div>        
-                    </form>
-                </div>
-                <!-- comment-section -->
-                <div class="row">
-                    <div class="center main-border">
-                        <h3 class="GloriaHallelujah">Comments</h3>
-                        <div class="content-border">
-                            <div class="valign-wrapper">
-                                <h6 class="GloriaHallelujah">username says:</h6>
-                            </div>
-                            <div class="valign-wrapper">
-                                <p class="GloriaHallelujah">comment content</p>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
+    <div class="grey darken-4 fixed">
+        <div class="col hide-on-small-only m4 l2 grey darken-4">
+          <ul class="section table-of-contents">
+            <li><a href="{{ url_for('get_blogs') }}" class="GloriaHallelujah">Back</a></li>
+            <li><a href="#" class="GloriaHallelujah">Bookmark</a></li>
+            <li><a href="{{ url_for('add_comment', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">Comment</a></li>
+            {% if session['user'] == list_of_blogs.created_by %}
+            <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
+            <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
+            {% endif %}
+          </ul>
         </div>
     </div>
 
+    <!-- comment-bx -->
+    <div class="col s12 m8 l10 offset-m2">
+        <div class="card-panel center main-border">
+            <div class="card-panel grey darken-3">
+                <h3 class="GloriaHallelujah">Comment Section</h3>
+            </div>
+            <!-- rel-comment-bx -->
+            {% if related_comment|length > 0 %}
+            <div class="row">
+                {% for comment in related_comment %}
+                    <div class="card-panel grey darken-3">
+                        <h6 class="valign-wrapper GloriaHallelujah">{{ comment.comm_date }} </h6>
+                        <h6 class="valign-wrapper GloriaHallelujah">{{ comment.comm_by }} says: </h6>
+                        <div class="valign-wrapper">
+                        <p class="GloriaHallelujah">{{ comment.comm_content }}</p>
+                        </div>
+                    </div>
+                    <div class="valign-wrapper">
+                        {% if session['user'] == list_of_blogs.created_by %}
+                        <a href="{{ url_for('edit_comment', comment_id=comment['_id'])}}" class="btn orange GloriaHallelujah">Edit</a>
+                        <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div>
+                        <h5 class="red-text GloriaHallelujah">No comments yet</h5>
+                    </div>
+            {% endif %}
+            </div>
+        </div>
+        
+    </div>
+
+    {% for comment in related_comment %}
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p>You are about to delete your comment !
+                If you wish to cancel press "BACK".
+            </p>
+        </div>
+        <div class="modal-footer">
+            {% if session['user'] == list_of_blogs.created_by %}
+            <a href="{{ url_for('read_blog', blog_id=list_of_blogs['_id']) }}" class="btn-small red lighten-1">Back</a>
+            <a href="{{ url_for('delete_comment', comment_id=comment['_id'])}}" class="btn-small red lighten-1">Delete</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+            {% endfor %}
 </div>
 
 {% endblock %}
