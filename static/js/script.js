@@ -15,3 +15,4 @@ $("select").formSelect();
   $(document).ready(function(){
     $('.modal').modal();
   });
+       

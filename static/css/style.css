@@ -282,6 +282,11 @@ textarea {
     padding: 5rem 1rem 10rem 1rem;
 }
 
+.fixed {
+    position: fixed;
+    right: 0;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
