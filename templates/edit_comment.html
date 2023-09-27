@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row grey darken-1">
+<div class="col s12 m8 l12 offset-m2">
+    <div class="card-panel center main-border">
+            <div class="card-panel grey darken-3">
+                <h3 class="GloriaHallelujah">Share your voice</h3>
+            </div>
+            <!-- rel-comment-bx -->
+            <div class="row">
+                <form action="{{ url_for('edit_comment', comment_id=list_of_comments['_id']) }}" method="POST">
+                    <div class="input-field col s12 grey darken-3 border"><i class="fa-solid fa-comment-dots prefix green-text"></i>
+                        <textarea id="comm_content" name="comm_content" class="validate GloriaHallelujah coment-bx input-field"
+                        required></textarea>
+                        <label for="comm_content" class="white-text GloriaHallelujah">Leave a comment</label>
+                        <!-- confirm button -->
+                        <button type="submit" class="btn green darken-1 text-shadow">
+                        Submit 
+                        </button>
+                    </div>        
+                </form>
+            </div>
+    </div>
+</div>
+</div>
+{% endblock %}
