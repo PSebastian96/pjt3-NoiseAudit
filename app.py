@@ -152,15 +152,19 @@ def get_blogs():
 def search():
     if request.method == "POST":
         query = request.form.get("query")
-        list_of_blogs = list(mongo.db.blogsdb.find({"$text": {"$search": query}}))
+        list_of_blogs = list(mongo.db.blogsdb.find({"$text":
+                                                   {"$search": query}}))
         return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
 # read blog
-@app.route("/read_blog/<blog_id>")
-def read_blog(blog_id):
+@app.route("/read_blog/<blog_id>/<comment_id>")
+def read_blog(blog_id, comment_id):
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    return render_template("read_blog.html", list_of_blogs=list_of_blogs)
+    list_of_comments = mongo.db.commentsdb.find_one({"_id":
+                                                    ObjectId(comment_id)})
+    return render_template("read_blog.html", list_of_blogs=list_of_blogs,
+                           list_of_comments=list_of_comments)
 
 
 # add blog function
@@ -207,7 +211,8 @@ def edit_blog(blog_id):
             "created_date": request.form.get("created_date"),
             "blog_content": request.form.get("blog_content")
         }
-        mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
+        mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)},
+                                    {"$set": submit})
         flash("Blog Successfully Edited")
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
@@ -236,7 +241,7 @@ def add_comment():
     if request.method == "POST":
         comment = {
             "comm_by": session["user"],
-            "comm_id": request.form.get({"_id": ObjectId(blog_id)})
+            "comm_id": request.form.get({"_id": ObjectId(blog_id)}),
             "comm_date": request.form.get("comm_date").insert_one(date_time),
             "comm_content": request.form.get("comm_content")
         }
