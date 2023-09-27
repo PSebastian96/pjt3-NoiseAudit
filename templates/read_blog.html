@@ -42,12 +42,13 @@
             <div class="row">
                 {% for comment in related_comment %}
                     <div class="card-panel grey darken-3">
-                        <h6 class="GloriaHallelujah">{{ comment.comm_date }} </h6>
-                        <h6 class="GloriaHallelujah">{{ comment.comm_by }} says: </h6>
+                        <h6 class="valign-wrapper GloriaHallelujah">{{ comment.comm_date }} </h6>
+                        <h6 class="valign-wrapper GloriaHallelujah">{{ comment.comm_by }} says: </h6>
                         <div class="valign-wrapper">
                         <p class="GloriaHallelujah">{{ comment.comm_content }}</p>
+                        </div>
                     </div>
-                    <div>
+                    <div class="valign-wrapper">
                         {% if session['user'] == list_of_blogs.created_by %}
                         <a href="{{ url_for('edit_comment', comment_id=comment['_id'])}}" class="btn orange GloriaHallelujah">Edit</a>
                         <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
