@@ -254,22 +254,19 @@ def add_comment(blog_id):
 
 
 # edit comment
-@app.route('/edit_comment/<comment_id>')
+@app.route('/edit_comment/<comment_id>', methods=["GET", "POST"])
 def edit_comment(comment_id):
-    now = datetime.now()  # current date and time
-    date_time = now.strftime("%d/%m/%Y")
 
     if request.method == "POST":
-        edit = {
-            "comm_date": date_time,
-            "comm_content": request.form.get("comm_content"),
+        submit = {
+            "comm_content": request.form.get("comm_content")
         }
-    mongo.db.commentsdb.update_one({"_id": ObjectId(comment_id)},
-                                   {"$set": edit})
-    flash("Comment Successfully Updated")
-    list_of_comments = list(mongo.db.commentsdb.find_one({"_id":
-                                                         ObjectId(comment_id)})
-                            )
+        mongo.db.commentsdb.update_one({"_id": ObjectId(comment_id)},
+                                       {"$set": submit})
+        flash("Comment Successfully Updated")
+
+    list_of_comments = mongo.db.commentsdb.find_one({"_id":
+                                                    ObjectId(comment_id)})
     return render_template("edit_comment.html",
                            list_of_comments=list_of_comments)
 
