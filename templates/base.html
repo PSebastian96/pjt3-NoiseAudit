@@ -43,7 +43,6 @@
                         <li><a href="{{ url_for('get_blogs') }}">Blogs</a></li>
                         <li><a href="{{ url_for('add_blog') }}">Create</a></li>
                         <li><a href="{{ url_for('my_blogs') }}">MyBlogs</a></li>
-                        <li><a href="#">Bookmarks</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
@@ -68,12 +67,11 @@
                         <li><a href="{{ url_for('get_blogs') }}">Blogs</a></li>
                         <li><a href="{{ url_for('add_blog') }}">Create</a></li>
                         <li><a href="{{ url_for('my_blogs') }}">MyBlogs</a></li>
-                        <li><a href="#">Bookmarks</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li><a href="{{ url_for('signout') }}">Log Out</a></li>
                         {% else %}
-                        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li><a href="{{ url_for('join') }}">Join</a></li>
                         <li><a href="{{ url_for('signin') }}">Login</a></li>

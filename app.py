@@ -300,6 +300,19 @@ def dashboard():
     return render_template("dashboard.html", list_of_users=list_of_users)
 
 
+# admin search function
+@app.route("/admin_search", methods=["GET", "POST"])
+def admin_search():
+    if request.method == "POST":
+        query = request.form.get("query")
+        list_of_blogs = list(mongo.db.blogsdb.find({"$text":
+                                                   {"$search": query}}))
+        list_of_users = list(mongo.db.users.find({"$text":
+                                                 {"$search": query}}))
+        return render_template("dashboard.html", list_of_blogs=list_of_blogs,
+                               list_of_users=list_of_users)
+
+
 # admin remove account
 @app.route("/delete_user_admin/<user_id>")
 def delete_user_admin(user_id):

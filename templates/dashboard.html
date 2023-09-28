@@ -12,7 +12,7 @@
 
 <div class="row head-padding">
     <div class="col s12 m8 offset-m2">
-        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+        <form action="{{ url_for('admin_search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align grey darken-3 border">
                 <div class="input-field col s12 m8">
                     <i class="fas fa-search prefix light-blue-text text-darken-3"></i>
@@ -37,7 +37,7 @@
     </div>
 </div>
 
-{% if list_of_users|length > 0 %}
+
     <div class="row grey darken-2 list-padding">
         {% for user in list_of_users %}
             <div class="col s12 m6 l4 center">
@@ -51,19 +51,26 @@
                     <p class="GloriaHallelujah">Email: {{ user.user_email }}</p>
                     </div>
                     <div class="border grey darken-4">
-                    <a href="#" class="btn red GloriaHallelujah">Delete</a>
+                    <a href="{{ url_for('delete_user_admin', user_id=user['_id'])}}" class="btn red GloriaHallelujah">Delete</a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+            {% for blog in list_of_blogs %}
+            <div class="col s12 m6 l4 center">
+                <div class="card small hoverable border blog-card grey darken-4">
+                    <div class="card-content white-text">
+                    <span class="card-title red-txt GloriaHallelujah">Blog: {{ list_of_blogs.blog_title}}</span>
+                    <p class="GloriaHallelujah">Author: {{ list_of_blogs.created_by }}</p>
+                    <p class="GloriaHallelujah">Date: {{ list_of_blogs.created_date }}</p>
+                    <p class="GloriaHallelujah">Category: {{ list_of_blogs.category_name }}</p>
+                    </div>
+                    <div class="border grey darken-4">
+                    <a href="{{ url_for('read_blog', blog_id=blog['_id']) }}" class="btn green GloriaHallelujah">Read</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
     </div>
-{% else %}
-    <div class="row list-padding">
-     <div class="col s12 m8 offset-m2">
-         <h3 class="red-text GloriaHallelujah center-align">No Info Found :(</h3>
-     </div>
-    </div>
-{% endif %}
-
 
 {% endblock %}
