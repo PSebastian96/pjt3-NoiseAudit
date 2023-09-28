@@ -53,6 +53,12 @@
                         <a href="{{ url_for('edit_comment', comment_id=comment['_id'])}}" class="btn orange GloriaHallelujah">Edit</a>
                         <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
                         {% endif %}
+                        {% for user in users %}
+                        {% if session['user'] == user.username %}
+                        <a href="{{ url_for('edit_comment', comment_id=comment['_id'])}}" class="btn orange GloriaHallelujah">Edit</a>
+                        <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                     {% endfor %}
                     {% else %}

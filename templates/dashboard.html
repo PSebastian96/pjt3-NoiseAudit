@@ -12,24 +12,46 @@
 
     <ul class="collapsible center">
         <li>
-          <div class="collapsible-header white-text">General Info</div>
+          <div class="collapsible-header white-text">Add new category</div>
           <div class="collapsible-body white-text">
             <p>Number of users: </p>
             <p>Number of blogs: </p>
           </div>
         </li>
         <li>
-          <div class="collapsible-header white-text">User List</div>
-          <div class="collapsible-body white-text">
-            <p>user ....n </p>
-          </div>
-        </li>
+            <div class="collapsible-header white-text">Delete category</div>
+            <div class="collapsible-body white-text">
+              <p>Number of users: </p>
+              <p>Number of blogs: </p>
+            </div>
+          </li>
         <li>
-          <div class="collapsible-header white-text">Blog data</div>
+          <div class="collapsible-header white-text">User List</div>
+          {% for user in users %}
           <div class="collapsible-body white-text">
-            <p>Most liked blog :</p>
-            <p>Most disliked blog :</p>
+             <div>
+                    <p>{{ user.username }}</p>
+                    <p>{{ user.fname }}</p>
+                    <p>{{ user.lname }}</p>
+                    <p>{{ user.user_email }}</p>
+                    <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
+                    <!-- Model -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <p class="black-text">You are about to delete the user.
+                                If you wish to cancel press "Cancel".
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url_for('dashboard') }}" class="btn-small lighten-1">Cancel</a>
+                            <a href="#" class="btn-small red lighten-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>    
           </div>
+        {% endfor %}
         </li>
       </ul>
 

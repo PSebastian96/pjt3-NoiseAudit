@@ -70,8 +70,6 @@ def signin():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -160,14 +158,16 @@ def search():
 # read blog
 @app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
+    users = list(mongo.db.users.find_one())
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     list_of_comments = list(mongo.db.commentsdb.find().sort('comm_date', -1))
+    # match the comment to the correct blog
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', -1))
     if list_of_blogs:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
                                list_of_comments=list_of_comments,
-                               related_comment=related_comment)
+                               related_comment=related_comment, users=users)
 
 
 # add blog function
@@ -296,7 +296,8 @@ def contact():
 # admin dashboard
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    users = list(mongo.db.users.find())
+    return render_template("dashboard.html", users=users)
 
 
 if __name__ == "__main__":

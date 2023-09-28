@@ -2,10 +2,12 @@
 
 {% block content %}
 
+<div>
+    <h3 class="center-align join-sign-title grey darken-3">Become a NoiseAuditor</h3>
+</div>
 
-<h3 class="center-align join-sign-title">Become a NoiseAuditor</h3>
 
-<div class="row">
+<div class="row grey darken-3">
   <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('join') }}">
     <div class="card-panel">
       
@@ -97,7 +99,7 @@
   </form>
 </div>
 
-<div class="row">
+<div class="row grey darken-3">
   <div class="col s12">
     <p class="center-align green-text">Already a member? <a href="{{ url_for('signin') }}" class="light-blue-text">Sign In</a></p>
   </div>

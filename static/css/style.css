@@ -287,6 +287,14 @@ textarea {
     right: 0;
 }
 
+.flashes h4 {
+    font-family: '.GloriaHallelujah', cursive;
+    line-height: 2;
+    background-color: #4e4d4d;
+    color: #68dc64;
+    margin: 0;
+}
+
 /* Responsivness */
 
 @media screen and (max-width: 600px){
