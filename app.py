@@ -296,10 +296,19 @@ def contact():
 # admin dashboard
 @app.route("/dashboard")
 def dashboard():
-    users = list(mongo.db.users.find())
-    return render_template("dashboard.html", users=users)
+    list_of_users = list(mongo.db.users.find())
+    return render_template("dashboard.html", list_of_users=list_of_users)
 
 
+# admin remove account
+@app.route("/delete_user_admin/<user_id>")
+def delete_user_admin(user_id):
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    flash("Account Has Been Deleted")
+    return redirect(url_for("dashboard"))
+
+
+#
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
