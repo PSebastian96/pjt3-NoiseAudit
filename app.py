@@ -45,7 +45,8 @@ def join():
             "password": generate_password_hash(request.form.get("password")),
             "fname": request.form.get("lname").lower(),
             "lname": request.form.get("fname").lower(),
-            "user_email": request.form.get("user_email").lower()
+            "user_email": request.form.get("user_email").lower(),
+            "bookmarks": []
         }
         mongo.db.users.insert_one(register)
 
@@ -69,7 +70,6 @@ def signin():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                session["user_id"] = str(existing_user["_id"])
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for(
                     "profile", username=session["user"]))
@@ -291,51 +291,6 @@ def my_blogs():
     return render_template("my_blogs.html", list_of_blogs=list_of_blogs)
 
 
-# users bookmarked blogs
-@app.route("/my_bookmarks")
-def my_bookmarks():
-    if 'user' in session:
-        if session["user"] == str(mongo.db.users.find_one(
-                                                         {"username":
-                                                          session["user"]})):
-            user_id = session['user_id']
-            user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-            bookmarks = user.get('bookmarks', [])
-            bookmarked_blogs = mongo.db.blogsdb.find(
-                                                    {"_id":
-                                                     {"$in": bookmarks}})
-        return render_template("my_bookmarks.html",
-                               bookmarked_blogs=bookmarked_blogs)
-
-
-# add to bookmark
-@app.route("/bookmark/<blog_id>")
-def bookmark(blog_id):
-    if 'user' in session:
-        if session["user"] == str(mongo.db.users.find_one({"username":
-                                                          session["user"]})):
-            user_id = session['user_id']
-            mongo.db.users.update_one(
-                {"_id": ObjectId(user_id)},
-                {"$addToSet": {"bookmarks": blog_id}}
-                )
-        return redirect(url_for("get_blogs"))
-
-
-# remove from bookmark
-@app.route("/unbookmark/<blog_id>")
-def unbookmark(blog_id):
-    if 'user' in session:
-        if session["user"] == str(mongo.db.users.find_one({"username":
-                                                          session["user"]})):
-            user_id = session['user_id']
-            mongo.db.users.update_one(
-                                      {"_id": ObjectId(user_id)},
-                                      {"$pull": {"bookmarks": blog_id}}
-                                    )
-    return redirect(url_for("get_blogs"))
-
-
 # contact page template
 @app.route("/contact")
 def contact():
@@ -372,7 +327,6 @@ def delete_user_admin(user_id):
     return redirect(url_for("dashboard"))
 
 
-#
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

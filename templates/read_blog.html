@@ -21,17 +21,12 @@
         <div class="col hide-on-small-only m4 l2 grey darken-4">
           <ul class="section table-of-contents">
             <li><a href="{{ url_for('get_blogs') }}" class="GloriaHallelujah">Back</a></li>
-            {% if session.user and list_of_blogs._id in session.user.bookmarks %}
-            <li><a href="{{ url_for('unbookmark', blog_id=list_of_blogs._id) }}">Remove Bookmark</a></li>
-            {% else %}
-            <li><a href="{{ url_for('bookmark', blog_id=list_of_blogs._id) }}">Bookmark</a></li>
-            {% endif %}
             <li><a href="{{ url_for('add_comment', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">Comment</a></li>
             {% if session['user'] == list_of_blogs.created_by %}
             <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
             <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
             {% endif %}
-            {% if admin_user %}
+            {% if session['user'] == admin_user %}
             <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
             <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
             {% endif %}
