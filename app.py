@@ -69,6 +69,7 @@ def signin():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
+                session["user_id"] = str(existing_user["_id"])
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for(
                     "profile", username=session["user"]))
@@ -294,10 +295,15 @@ def my_blogs():
 @app.route("/my_bookmarks")
 def my_bookmarks():
     if 'user' in session:
-        user_id = session['user']['_id']
-        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-        bookmarks = user.get('bookmarks', [])
-        bookmarked_blogs = mongo.db.blogsdb.find({"_id": {"$in": bookmarks}})
+        if session["user"] == str(mongo.db.users.find_one(
+                                                         {"username":
+                                                          session["user"]})):
+            user_id = session['user_id']
+            user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+            bookmarks = user.get('bookmarks', [])
+            bookmarked_blogs = mongo.db.blogsdb.find(
+                                                    {"_id":
+                                                     {"$in": bookmarks}})
         return render_template("my_bookmarks.html",
                                bookmarked_blogs=bookmarked_blogs)
 
@@ -306,23 +312,27 @@ def my_bookmarks():
 @app.route("/bookmark/<blog_id>")
 def bookmark(blog_id):
     if 'user' in session:
-        user_id = session['user']['_id']
-        mongo.db.users.update_one(
-            {"_id": ObjectId(user_id)},
-            {"$addToSet": {"bookmarks": blog_id}}
-        )
-    return redirect(url_for("get_blogs"))
+        if session["user"] == str(mongo.db.users.find_one({"username":
+                                                          session["user"]})):
+            user_id = session['user_id']
+            mongo.db.users.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$addToSet": {"bookmarks": blog_id}}
+                )
+        return redirect(url_for("get_blogs"))
 
 
 # remove from bookmark
 @app.route("/unbookmark/<blog_id>")
 def unbookmark(blog_id):
     if 'user' in session:
-        user_id = session['user']['_id']
-        mongo.db.users.update_one(
-            {"_id": ObjectId(user_id)},
-            {"$pull": {"bookmarks": blog_id}}
-        )
+        if session["user"] == str(mongo.db.users.find_one({"username":
+                                                          session["user"]})):
+            user_id = session['user_id']
+            mongo.db.users.update_one(
+                                      {"_id": ObjectId(user_id)},
+                                      {"$pull": {"bookmarks": blog_id}}
+                                    )
     return redirect(url_for("get_blogs"))
 
 
