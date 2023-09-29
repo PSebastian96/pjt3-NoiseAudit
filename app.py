@@ -160,7 +160,7 @@ def search():
 def read_blog(blog_id):
     users = list(mongo.db.users.find_one())
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-     # get admin value from db
+    # get admin value from db
     admin_user = mongo.db.users.find_one({"username": "admin"})
     list_of_comments = list(mongo.db.commentsdb.find().sort('comm_date', -1))
     # match the comment to the correct blog
@@ -288,6 +288,42 @@ def my_blogs():
     # display blogs by latest date
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("my_blogs.html", list_of_blogs=list_of_blogs)
+
+
+# users bookmarked blogs
+@app.route("/my_bookmarks")
+def my_bookmarks():
+    if 'user' in session:
+        user_id = session['user']['_id']
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+        bookmarks = user.get('bookmarks', [])
+        bookmarked_blogs = mongo.db.blogsdb.find({"_id": {"$in": bookmarks}})
+        return render_template("my_bookmarks.html",
+                               bookmarked_blogs=bookmarked_blogs)
+
+
+# add to bookmark
+@app.route("/bookmark/<blog_id>")
+def bookmark(blog_id):
+    if 'user' in session:
+        user_id = session['user']['_id']
+        mongo.db.users.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$addToSet": {"bookmarks": blog_id}}
+        )
+    return redirect(url_for("get_blogs"))
+
+
+# remove from bookmark
+@app.route("/unbookmark/<blog_id>")
+def unbookmark(blog_id):
+    if 'user' in session:
+        user_id = session['user']['_id']
+        mongo.db.users.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$pull": {"bookmarks": blog_id}}
+        )
+    return redirect(url_for("get_blogs"))
 
 
 # contact page template
