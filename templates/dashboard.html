@@ -39,6 +39,7 @@
 
 
     <div class="row grey darken-2 list-padding">
+        
         {% for user in list_of_users %}
             <div class="col s12 m6 l4 center">
                 <div class="card small hoverable border blog-card grey darken-4">
@@ -56,14 +57,16 @@
                 </div>
             </div>
             {% endfor %}
+         
+        
             {% for blog in list_of_blogs %}
             <div class="col s12 m6 l4 center">
                 <div class="card small hoverable border blog-card grey darken-4">
                     <div class="card-content white-text">
-                    <span class="card-title red-txt GloriaHallelujah">Blog: {{ list_of_blogs.blog_title}}</span>
-                    <p class="GloriaHallelujah">Author: {{ list_of_blogs.created_by }}</p>
-                    <p class="GloriaHallelujah">Date: {{ list_of_blogs.created_date }}</p>
-                    <p class="GloriaHallelujah">Category: {{ list_of_blogs.category_name }}</p>
+                    <span class="card-title red-txt GloriaHallelujah">Audit Name: {{ blog.blog_title}}</span>
+                    <p class="GloriaHallelujah">Author: {{ blog.created_by }}</p>
+                    <p class="GloriaHallelujah">Date: {{ blog.created_date }}</p>
+                    <p class="GloriaHallelujah">Category: {{ blog.category_name }}</p>
                     </div>
                     <div class="border grey darken-4">
                     <a href="{{ url_for('read_blog', blog_id=blog['_id']) }}" class="btn green GloriaHallelujah">Read</a>
@@ -71,6 +74,7 @@
                 </div>
             </div>
             {% endfor %}
+            
     </div>
 
 {% endblock %}

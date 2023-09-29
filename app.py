@@ -160,6 +160,8 @@ def search():
 def read_blog(blog_id):
     users = list(mongo.db.users.find_one())
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+     # get admin value from db
+    admin_user = mongo.db.users.find_one({"username": "admin"})
     list_of_comments = list(mongo.db.commentsdb.find().sort('comm_date', -1))
     # match the comment to the correct blog
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
@@ -167,7 +169,8 @@ def read_blog(blog_id):
     if list_of_blogs:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
                                list_of_comments=list_of_comments,
-                               related_comment=related_comment, users=users)
+                               related_comment=related_comment, users=users,
+                               admin_user=admin_user)
 
 
 # add blog function
@@ -297,7 +300,9 @@ def contact():
 @app.route("/dashboard")
 def dashboard():
     list_of_users = list(mongo.db.users.find())
-    return render_template("dashboard.html", list_of_users=list_of_users)
+    list_of_blogs = list(mongo.db.blogsdb.find())
+    return render_template("dashboard.html", list_of_users=list_of_users,
+                           list_of_blogs=list_of_blogs)
 
 
 # admin search function
