@@ -159,7 +159,7 @@ def search():
 # read blog
 @app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
-    users = list(mongo.db.users.find_one())
+    current_user = session.get('user')
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     # get admin value from db
     admin_user = mongo.db.users.find_one({"username": "admin"})
@@ -170,8 +170,9 @@ def read_blog(blog_id):
     if list_of_blogs:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
                                list_of_comments=list_of_comments,
-                               related_comment=related_comment, users=users,
-                               admin_user=admin_user)
+                               related_comment=related_comment,
+                               admin_user=admin_user,
+                               current_user=current_user)
 
 
 # add blog function
