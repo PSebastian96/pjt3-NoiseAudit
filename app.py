@@ -243,11 +243,9 @@ def edit_blog(blog_id):
         flash("Blog Successfully Edited")
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
-    article_body = mongo.db.blogsdb.find_one("blog_content")
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_blog.html", blog=blog, categories=categories,
-                           date_time=date_time, username=username,
-                           article_body=article_body)
+                           date_time=date_time, username=username)
 
 
 # delete blog function

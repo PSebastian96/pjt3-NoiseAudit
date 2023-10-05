@@ -287,6 +287,7 @@ textarea {
     right: 0;
 }
 
+/* Flash Messages */
 .flashes h4 {
     font-family: '.GloriaHallelujah', cursive;
     line-height: 2;
@@ -313,5 +314,10 @@ textarea {
     .rev-three {
         border: #68dc64 solid 2px;
         border-radius: 10px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 50%;
     }
 }
