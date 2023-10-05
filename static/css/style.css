@@ -298,6 +298,17 @@ textarea {
 
 /* Responsivness */
 
+/* tablet */
+@media screen and (min-width: 760px) and (max-width: 920px){
+    .rev-img {
+        width: 15vh;
+        height: 15vh;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+/* mobile */
 @media screen and (max-width: 600px){
 
     .rev-one {
@@ -314,6 +325,13 @@ textarea {
     .rev-three {
         border: #68dc64 solid 2px;
         border-radius: 10px;
+    }
+    
+    .rev-img {
+        width: 15vh;
+        height: 15vh;
+        object-fit: cover;
+        border-radius: 50%;
     }
 
     iframe {
