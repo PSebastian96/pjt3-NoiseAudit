@@ -202,7 +202,7 @@ def add_blog():
         # check if blog exists by checking title
         existing_blog = mongo.db.blogsdb.find_one(blog_title)
         
-         # if blog title exists tell user the it's already in the db
+        # if blog title exists tell user the it's already in the db
         if existing_blog
             flash("Audit Title Already Exists.")
         
