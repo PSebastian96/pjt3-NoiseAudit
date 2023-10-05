@@ -18,17 +18,30 @@
             </div>
         </div>
     </div>
+    
+    <!-- mobile view actions -->
+    <div class="show-on-small hide-on-med-and-up">
+        <div class="col s12 m8 l10 offset-m2">
+            <div class="card-panel center main-border">
+                <div class="card-panel grey darken-3">
+                    <a href="{{ url_for('get_blogs') }}" class="btn yellow GloriaHallelujah">Back</a>
+                    <a href="{{ url_for('add_comment', blog_id=list_of_blogs['_id']) }}" class="btn green GloriaHallelujah">Comment</a>
+                    {% if session['user'] == list_of_blogs.created_by or current_user == admin_user['username'] %}
+                    <a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="btn orange GloriaHallelujah">Edit</a>
+                    <a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="btn red GloriaHallelujah">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- med-large device actions -->
     <div class="grey darken-4 fixed">
         <div class="col hide-on-small-only m4 l2 grey darken-4">
           <ul class="section table-of-contents">
             <li><a href="{{ url_for('get_blogs') }}" class="GloriaHallelujah">Back</a></li>
             <li><a href="{{ url_for('add_comment', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">Comment</a></li>
-            {% if session['user'] == list_of_blogs.created_by %}
-            <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
-            <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
-            {% endif %}
-            {% if current_user == admin_user['username'] %}
+            {% if session['user'] == list_of_blogs.created_by or current_user == admin_user['username'] %}
             <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
             <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
             {% endif %}
