@@ -12,7 +12,7 @@
             <h5 class="green-text GloriaHallelujah">Date: {{ list_of_blogs.created_date}}</h5>
             <h5 class="green-text GloriaHallelujah">Category: {{ list_of_blogs.category_name }}</h5>
             <div class="valign-wrapper content-border">
-             <p class="white-text GloriaHallelujah">{{ list_of_blogs.blog_content }}</p>
+             <p class="white-text GloriaHallelujah">{{ list_of_blogs.blog_content|safe }}</p>
             </div>
         </div>
     </div>

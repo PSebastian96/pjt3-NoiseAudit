@@ -6,11 +6,15 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from flask_ckeditor import CKEditor
 if os.path.exists("env.py"):
     import env
 
 # flask instance
 app = Flask(__name__)
+
+# ckeditor instance
+ckeditor = CKEditor(app)
 
 # app config for db
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -185,27 +189,26 @@ def add_blog():
     date_time = now.strftime("%d/%m/%Y")
 
     if request.method == "POST":
-        
         # find blog's title
         blog_title = {
             "blog_title": request.form.get("blog_title").title()
         }
-        
+
         blog = {
             "created_by": session["user"],
             "category_name": request.form.get("category_name"),
             "created_date": request.form.get("created_date"),
             "blog_title": request.form.get("blog_title"),
-            "blog_content": request.form.get("blog_content")
+            "blog_content": request.form.get("ckeditor")
         }
 
         # check if blog exists by checking title
         existing_blog = mongo.db.blogsdb.find_one(blog_title)
-        
+
         # if blog title exists tell user the it's already in the db
-        if existing_blog
+        if existing_blog:
             flash("Audit Title Already Exists.")
-        
+
         # If it doesn't exist, post audit
         else:
             mongo.db.blogsdb.insert_one(blog)
@@ -233,16 +236,18 @@ def edit_blog(blog_id):
             "category_name": request.form.get("category_name"),
             "blog_title": request.form.get("blog_title"),
             "created_date": request.form.get("created_date"),
-            "blog_content": request.form.get("blog_content")
+            "blog_content": request.form.get("ckeditor")
         }
         mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)},
                                     {"$set": submit})
         flash("Blog Successfully Edited")
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+    article_body = mongo.db.blogsdb.find_one("blog_content")
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_blog.html", blog=blog, categories=categories,
-                           date_time=date_time, username=username)
+                           date_time=date_time, username=username,
+                           article_body=article_body)
 
 
 # delete blog function

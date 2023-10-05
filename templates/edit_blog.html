@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{{ ckeditor.load() }}
+
 <div class="row head-padding">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey darken-3">
@@ -63,11 +65,7 @@
                 <!-- content box -->
                 <div class="row grey darken-2">
                     <div class="input-field col s12 grey darken-2">
-                        <i class="fa-regular fa-pen-to-square prefix black-text"></i>
-                        <textarea id="blog_content" name="blog_content" class="resize-non black-text GloriaHallelujah" rows="100" cols="100">
-                            {{- blog.blog_content -}}
-                        </textarea>
-                     <label for="blog_content">Noise Audit</label>
+                        {{ ckeditor.create(value=blog.blog_content) }}
                     </div>
                 </div>
                 <!-- buttons -->
