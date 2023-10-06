@@ -58,19 +58,37 @@ The third milestone project's objective is to make a website that contains front
 ### Design :
 
 - Desing of the website is very minimalistic. The primary colours are black, green and white.
+<img width="119" alt="color pallette" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/1596275f-bec7-40b7-811a-9ff2c0b23d90">
+
+  
 - The colour black is used to style the menu bar and footer.
 - Body of the website is black/grey colour.
 - The text is mostly green, which pairs with the black background colour.
 - Menu links are green when hovered over as well as the footer links.
+<img width="229" alt="green pallette" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b040696-3c06-4323-98c0-0570c9e39c51">
+
+  
 - For the Logo, I have used the 'Rubik Distressed' google font family.
+<img width="144" alt="Logo font" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/35695192-ab8e-42e1-86e7-32593e0ff4d1">
+
+
 - For the menu links, 'Henny Penny' google font family is used.
-- For the titles, I have used the 'Gloria Hallelujah' google font.
+<img width="207" alt="menu font type" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/e374ebc2-a501-4866-93d6-7e7c3b39cde4">
+
+
+- For the titles, reviews and blog font style, I have used the 'Gloria Hallelujah' google font-family.
+<img width="256" alt="general_txt_font" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d5267c94-f515-4695-8d5c-a08c368d5b99">
+
 
 <a name="userstory"></a>
 
 ### First time visitor goals :
 
 As a first time visitor, I want to give basic information about the website, the purpose and what community this website is made for. In this case, this blogging website is about music lovers and musicians, where users can post reviews about artists, albums, music genre, music scene, criticism and musical instruments & equipment reviews.
+
+- On the main page the visitor has 3 reviews from frequent users:
+
+- Visitor have a accordion F.A.Q. for their curiosity to find more info about the page:
 
 ### Frequent user goals :
 
@@ -207,8 +225,6 @@ As a first time visitor, I want to give basic information about the website, the
 
 <a name="deploy"></a>
 # Deployment
-
-<hr>
 
 ### Heroku Deployment 
 
