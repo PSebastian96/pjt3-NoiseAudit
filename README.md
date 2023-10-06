@@ -86,9 +86,15 @@ The third milestone project's objective is to make a website that contains front
 
 As a first time visitor, I want to give basic information about the website, the purpose and what community this website is made for. In this case, this blogging website is about music lovers and musicians, where users can post reviews about artists, albums, music genre, music scene, criticism and musical instruments & equipment reviews.
 
+- The About Us section is on the top of the page, in order for first time visitors to get the general information about the website and for who it is made for and what's the purpose of the site.
+
 - On the main page the visitor has 3 reviews from frequent users:
+<img width="890" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d2a1500e-8a91-4905-b0ff-63667b54e25f">
+
 
 - Visitor have a accordion F.A.Q. for their curiosity to find more info about the page:
+  <img width="301" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/33b3914f-165e-4e7d-8f15-03e22d50ec13">
+
 
 ### Frequent user goals :
 
@@ -102,6 +108,63 @@ As a first time visitor, I want to give basic information about the website, the
 
 5. Encourage members of the community to visit the site frequently by reading, creating and updating 
    their blogs, comments and share new knowledge or music with eachother.
+
+### Admin user:
+
+- Admin user has access to every registered users information and every blog posted on the site.
+- Admin has enabled CRUD functions for Creating/Reading/Updating/Deleting blog post and comments.
+- Since the admin has access to the registered user list, it can delete any account.
+
+<hr>
+
+<a name="how2blog"></a>
+# How to Blog
+
+## How to post an Audit:
+
+1. Register on the site and log in to your account.
+2. On the top right, in the menu bar the "Create" option is available, by selecting the option it will transfer the user to the form to create the blog.
+3. Fill all the fields in the form and on the bottom of the page, press the blue button which says SUBMIT AUDIT.
+4. The site will flash a message notifying the user that the blog has been posted successfully.
+5. The page will load the get_blogs page and by clicking on the READ button, the user can review the blog.
+
+### How to Edit a Blog:
+1. If you are the creator, select the My Blogs on the menu bar and you will have the option to Edit or Delete.
+2. If it is the admin user, the same applies as step 1.
+3. Other way to edit the blog is by selecting READ button and reading the full blog.
+4. On the right side there is a little box, which contains options BACK,EDIT,DELETE,COMMENT.
+5. Select the EDIT option and the page will load the form to edit the content of the blog.
+
+### How to Delete a Blog:
+1. If you are the creator, select the My Blogs on the menu bar and you will have the option to Delete.
+2. If it is the admin user, the same applies as step 1.
+
+### How to Comment on a Blog:
+1.On the right side there is a little box, which contains options BACK,EDIT,DELETE,COMMENT.
+2.Select the Comment option and the page will load the form to edit the comment on the blog.
+
+### How to Edit or Delete a Comment:
+
+- Similar as Editing or Deleting the blog.
+- If you are the creator or admin, you will have the option to Edit or Delete your own comments or as admin other users comments.
+
+### How to embed videos in the text editor:
+
+1. For youtube videos, on the bottom of the video select the SHARE button and then press EMBED, copy the link.
+2. Within the text editor select SOURCE button.
+<img width="576" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a5d42211-c62d-4571-865b-5791b9a9167a">
+
+3. This option will load the HTML version of the content in the text area.
+<img width="559" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/3f691ed5-97d4-43af-8e61-92f5ca230ca7">
+
+4. Under your content paste the embeded link copied from youtube.
+<img width="547" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d80bdb78-f82d-4708-812f-eeffa0a44f17">
+
+5. If you finished the writing just press the SUBMIT AUDIT button to submit the blog.
+6. If not done, just carry on within the text area with <p></p> elements and make sure to <p> use open tag in the beginning and closed </p> tag at the end of the text.
+7. After that press the SUBMIT AUDIT button to submit the blog.
+   
+<hr>
 
 <a name="wireframe"></a>
 ## Wireframing :
