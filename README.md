@@ -15,6 +15,12 @@ Third Milestone Project - Code Institute
     *   [User Stories](#userstory)
     *   [Wireframing](#wireframe)
 *   [Technologies used](#tech)
+*   [Database Schema](#dbschema)
+*   [Testing](#testing)
+    *   [HTML](#html)
+    *   [CSS](#css)
+    *   [Javascript](#js)
+    *   [Python](#python)
 *   [Content Sources](#sources)
 *   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
@@ -156,12 +162,16 @@ As a first time visitor, I want to give basic information about the website, the
 <a name="testing"></a>
 # Testing
 
+<a name="html"></a>
 ### HTML
 
+<a name="css"></a>
 ### CSS
 
+<a name="js"></a>
 ### Javascript
 
+<a name="python"></a>
 ### Python
 
 <hr>
