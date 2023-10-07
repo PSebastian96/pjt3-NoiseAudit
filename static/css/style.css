@@ -296,6 +296,33 @@ textarea {
     margin: 0;
 }
 
+/* Query Status for Contact page */
+
+#msg-container {
+    width: 100%;
+    position: relative;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.success {
+    font-size: 1.2rem;
+    color: rgb(117, 252, 117);
+    position: absolute;
+    animation: 0.3s linear;
+    display: none;
+}
+
+.failed {
+    font-size: 1.2rem;
+    color: rgb(250, 32, 32);
+    position: absolute;
+    animation: 0.3s linear;
+    display: none;
+}
+
 /* Responsivness */
 
 /* tablet */
