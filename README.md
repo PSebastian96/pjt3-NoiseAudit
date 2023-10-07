@@ -295,11 +295,13 @@ As a first time visitor, I want to give basic information about the website, the
 
 <img width="890" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a8810a74-47ee-4f54-bbf9-7aa1d048e99c">
 
-<a name="js"></a>
-### Javascript
-
 <a name="python"></a>
 ### Python
+
+- Pylint was used as python validator [https://pylint.pycqa.org/en/latest/user_guide/usage/run.html]
+- Pylint was used within the IDE terminal with pylint "file.py"
+
+<img width="440" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c91f8f4-eb07-440e-8428-c8fb1ead1e76">
 
 <hr>
 
