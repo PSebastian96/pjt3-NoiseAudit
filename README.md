@@ -19,6 +19,7 @@ Third Milestone Project - Code Institute
 *   [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
+    *   [Javascript](#js)
     *   [Python](#python)
     *   [Lighthouse](#lighthouse)
 *   [Content Sources](#sources)
@@ -309,6 +310,13 @@ As a first time visitor, I want to give basic information about the website, the
 - Within the IDE's command line, there were no issues with python code validity and is PEP8 compliant.
 
 <img width="440" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c91f8f4-eb07-440e-8428-c8fb1ead1e76">
+
+<a name="js"></a>
+### Javascript
+
+- JSHint was used to validate the Javascript code - [https://jshint.com/docs/]
+
+<img width="719" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b95296e-e35c-4b1d-9950-ef033acfd07a">
 
 <a name="lighthouse"></a>
 ### Lighthouse Testing
