@@ -288,6 +288,12 @@ As a first time visitor, I want to give basic information about the website, the
 <a name="html"></a>
 ### HTML
 
+- HTML Validator [https://validator.w3.org]
+
+- Most of the errors/warnings I received from the validator are due to the validator not recognising the Flask-Jinja templating language. Other than that there were no issues with the HTML documents.
+
+<img width="879" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/e5a9a410-9974-4f41-b425-8fdf318fe2ec">
+
 <a name="css"></a>
 ### CSS
 
@@ -302,6 +308,12 @@ As a first time visitor, I want to give basic information about the website, the
 - Pylint was used within the IDE terminal with pylint "file.py"
 
 <img width="440" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c91f8f4-eb07-440e-8428-c8fb1ead1e76">
+
+### Lighthouse Testing
+
+- Lighthouse is an open-source, automated tool for improving the performance, quality, and correctness of your web apps. [https://developer.chrome.com/docs/lighthouse/overview/]
+
+
 
 <hr>
 
