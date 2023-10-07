@@ -255,6 +255,22 @@ As a first time visitor, I want to give basic information about the website, the
   - Flask [https://flask.palletsprojects.com/en/2.3.x/#user-s-guide]
   - MongoDB [https://www.mongodb.com/docs/]
 
+### Emailjs API :
+
+- Emailjs - [https://www.emailjs.com]
+
+- Emailjs offers an emailing service for websites. This includes two type of API's : 1. free and personal use of up to 200 session/month and 2. a business API.
+  For this project I have signed up for the free/personal use of email service with 200 available sessions/month.
+  This API is allowing the developer to receive emails from the forms which are designed for the website for various pourposes.
+  The emailjs API makes the following possible:
+   
+   - The user can fill out the contact form with their details and their query or message.
+   - The API connects the "business" or personal email account (gmail,outlook etc) with the websites form and makes it possible to receive the visitors inputs from 
+     the same form.
+   - API also offers an auto reply mode and it's content is customizable and can fit any business/personal needs for emailing.
+
+ - For any further details about the application of this API, please find the details in the official documentation of the emailjs API [https://www.emailjs.com/docs/].
+
 ### Environment Used
 
 1. Github - [https://github.com]
@@ -302,6 +318,16 @@ As a first time visitor, I want to give basic information about the website, the
 
 <img width="890" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a8810a74-47ee-4f54-bbf9-7aa1d048e99c">
 
+<a name="js"></a>
+### Javascript
+
+- JSHint was used to validate the Javascript code - [https://jshint.com/docs/]
+
+<img width="719" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b95296e-e35c-4b1d-9950-ef033acfd07a">
+
+- Jest is a JavaScript testing framework [https://jestjs.io]
+
+  
 <a name="python"></a>
 ### Python
 
@@ -310,13 +336,6 @@ As a first time visitor, I want to give basic information about the website, the
 - Within the IDE's command line, there were no issues with python code validity and is PEP8 compliant.
 
 <img width="440" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c91f8f4-eb07-440e-8428-c8fb1ead1e76">
-
-<a name="js"></a>
-### Javascript
-
-- JSHint was used to validate the Javascript code - [https://jshint.com/docs/]
-
-<img width="719" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b95296e-e35c-4b1d-9950-ef033acfd07a">
 
 <a name="lighthouse"></a>
 ### Lighthouse Testing
