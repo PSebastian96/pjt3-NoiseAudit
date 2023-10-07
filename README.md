@@ -4,6 +4,9 @@
 
 Third Milestone Project - Code Institute 
 
+<img width="712" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b239032a-87d5-4925-a4ed-3b2346884a72">
+
+
 <hr>
 
 # Table of Contents
