@@ -273,6 +273,7 @@ As a first time visitor, I want to give basic information about the website, the
 
 Schema:
 
+<img width="404" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/98aa6627-7c78-4c32-9aeb-df9a6003afb8">
 
 <hr>
 
