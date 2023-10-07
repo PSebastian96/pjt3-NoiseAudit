@@ -19,8 +19,8 @@ Third Milestone Project - Code Institute
 *   [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
-    *   [Javascript](#js)
     *   [Python](#python)
+    *   [Lighthouse](#lighthouse)
 *   [Content Sources](#sources)
 *   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
@@ -306,9 +306,11 @@ As a first time visitor, I want to give basic information about the website, the
 
 - Pylint was used as python validator [https://pylint.pycqa.org/en/latest/user_guide/usage/run.html]
 - Pylint was used within the IDE terminal with pylint "file.py"
+- Within the IDE's command line, there were no issues with python code validity and is PEP8 compliant.
 
 <img width="440" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c91f8f4-eb07-440e-8428-c8fb1ead1e76">
 
+<a name="lighthouse"></a>
 ### Lighthouse Testing
 
 - Lighthouse is an open-source, automated tool for improving the performance, quality, and correctness of your web apps. [https://developer.chrome.com/docs/lighthouse/overview/]
