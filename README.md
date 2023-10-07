@@ -51,7 +51,7 @@ The third milestone project's objective is to make a website that contains front
 
 Github Repo - [https://github.com/PSebastian96/pjt3-NoiseAudit]
 
-Heroku Deployed Link - []
+Heroku Deployed Link - [https://noiseaudit-03-eec0b584a334.herokuapp.com]
 
 <hr>
 
