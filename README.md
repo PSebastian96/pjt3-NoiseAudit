@@ -404,7 +404,7 @@ In order to successfully deploy the project, the following is necessary:
 
 1. create a requirements.txt and Procfile within the CLI :
 
-a. -- pip3 freeze --local > requirements.txt <br>
+a. -- pip3 freeze --local > requirements.txt (contains all the Flask packages) <br>
 b. -- echo web: python app.py > Procfile
 
 2. Sign in to Heroku and create a new app.
