@@ -49,6 +49,10 @@ This project is part of the third milestone project within the course from City 
 
 The third milestone project's objective is to make a website that contains frontend and backend technologies with the backend: python and flask framework, while creating a web app that focuses on the CRUD (Create, Read, Update, Delete) functionalities and user interactivity. This enables to create a fully functional website, where users can join a website and interact with the content found on the website.
 
+Github Repo - [https://github.com/PSebastian96/pjt3-NoiseAudit]
+
+Heroku Deployed Link - []
+
 <hr>
 
 <a name="userexp"></a>
@@ -89,11 +93,13 @@ As a first time visitor, I want to give basic information about the website, the
 - The About Us section is on the top of the page, in order for first time visitors to get the general information about the website and for who it is made for and what's the purpose of the site.
 
 - On the main page the visitor has 3 reviews from frequent users:
+
 <img width="890" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d2a1500e-8a91-4905-b0ff-63667b54e25f">
 
 
 - Visitor have a accordion F.A.Q. for their curiosity to find more info about the page:
-  <img width="301" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/33b3914f-165e-4e7d-8f15-03e22d50ec13">
+
+<img width="301" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/33b3914f-165e-4e7d-8f15-03e22d50ec13">
 
 
 ### Frequent user goals :
@@ -109,11 +115,35 @@ As a first time visitor, I want to give basic information about the website, the
 5. Encourage members of the community to visit the site frequently by reading, creating and updating 
    their blogs, comments and share new knowledge or music with eachother.
 
+- The user while reading the Blog on medium-large devices, on the top-right side has a box of options to act on the Blog:
+<img width="913" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b0a5f7ee-c5d5-4197-adf5-4deda9b27ccf">
+ 
+- On the mobile view this is hidden and instead these options are available on the bottom between the content and comments section:
+<img width="316" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/9e773dfc-d76b-4bd1-91c1-163892336f8a">
+
+- With the comments, if the user is creator of blog or admin, on the comments there are two options, to delete and edit the comment:
+<img width="740" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/15ca41d7-3d6a-4c3e-bfe1-5efd7fda7391">
+
+- On the menu section MyBlogs, gives an option for the creators to see their list of published blogs and have CRUD functionalities available.
+<img width="895" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/395149d3-46c9-43bf-ae10-e846b0d9c1ed">
+
+- Main page Blogs, the users have access to every blog posted on the site, with the search bar on the top the user can search for blogs by categories, titles and text:
+<img width="901" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/6c4dcf98-1b9a-445b-9090-0c50985aa6ec">
+
+- The registered users can update their profile details on the Profile page and also have the option to delete (Danger Zone) their account:
+<img width="317" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/9ad72c14-8a8d-497a-b15f-d40a1a0ae98b">
+
 ### Admin user:
 
 - Admin user has access to every registered users information and every blog posted on the site.
 - Admin has enabled CRUD functions for Creating/Reading/Updating/Deleting blog post and comments.
 - Since the admin has access to the registered user list, it can delete any account.
+
+- Admin Dashboard page :
+
+1. <img width="903" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/0f63fa08-7b15-4bca-8244-e89a27caa229">
+
+2. <img width="895" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b05ff28a-76ed-4749-962c-2f2051f600d0">
 
 <hr>
 
@@ -236,6 +266,12 @@ As a first time visitor, I want to give basic information about the website, the
 
 <a name="dbschema"></a>
 # Database Schema
+
+- Non-Relational Database has been used in this project.
+- The database collections for this project:
+ <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
+
+Schema:
 
 
 <hr>
