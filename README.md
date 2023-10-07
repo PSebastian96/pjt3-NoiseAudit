@@ -291,6 +291,8 @@ As a first time visitor, I want to give basic information about the website, the
 <a name="css"></a>
 ### CSS
 
+<img width="890" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/a8810a74-47ee-4f54-bbf9-7aa1d048e99c">
+
 <a name="js"></a>
 ### Javascript
 
