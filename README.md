@@ -344,9 +344,6 @@ As a first time visitor, I want to give basic information about the website, the
 - JSHint was used to validate the Javascript code - [https://jshint.com/docs/]
 
 <img width="719" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b95296e-e35c-4b1d-9950-ef033acfd07a">
-
-- Jest is a JavaScript testing framework [https://jestjs.io]
-
   
 <a name="python"></a>
 ### Python
