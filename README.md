@@ -16,6 +16,7 @@ Third Milestone Project - Code Institute
 *   [User Experience (UX)](#userexp)
     *   [Design](#design)
     *   [User Stories](#userstory)
+    *   [How To Blog](#how2blog)
     *   [Wireframing](#wireframe)
 *   [Technologies used](#tech)
 *   [Database Schema](#dbschema)
@@ -248,7 +249,7 @@ As a first time visitor, I want to give basic information about the website, the
   - Javascript/JQuery [https://api.jquery.com]
   - Python3 [https://docs.python.org/3/]
 
-#### Front-end :
+### Front-end :
   - Materialize [https://materializecss.com]
   - Google fonts [https://fonts.google.com]
   - Font Awesome [https://fontawesome.com]
@@ -280,7 +281,7 @@ As a first time visitor, I want to give basic information about the website, the
     - Was used to store the repository and files for the project.
 
 2. Codeanywhere - [https://codeanywhere.com]
-    - was used as code editor for the project.
+    - Was used as code editor for the project.
 
 <hr>
 
@@ -290,6 +291,22 @@ As a first time visitor, I want to give basic information about the website, the
 - Non-Relational Database (MongoDB) has been used in this project.
 - The database collections for this project:
  <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
+
+- users database:
+<img width="866" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4b2dbb67-2ccd-40d1-b399-c402248acd53">
+
+
+- blogsdb database:
+<img width="937" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/cc4b7bac-40a8-467e-b09c-15ee01640663">
+
+
+- commentsdb database:
+<img width="899" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/fd0eddb2-f85e-41ff-8575-3e96464e534f">
+
+
+- categorydb database:
+<img width="922" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4e9840b0-2dce-406b-9cbf-295f40e88abb">
+
 
 - Schema:
 
