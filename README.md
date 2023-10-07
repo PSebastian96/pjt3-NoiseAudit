@@ -313,7 +313,9 @@ As a first time visitor, I want to give basic information about the website, the
 
 - Lighthouse is an open-source, automated tool for improving the performance, quality, and correctness of your web apps. [https://developer.chrome.com/docs/lighthouse/overview/]
 
-
+- Results of testing the index page:
+  
+<img width="920" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/34d75e67-5a27-4cf1-9210-34a0fc9c268d">
 
 <hr>
 
