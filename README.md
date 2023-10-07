@@ -271,10 +271,15 @@ As a first time visitor, I want to give basic information about the website, the
 - The database collections for this project:
  <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
 
-Schema:
+- Schema:
 
 <img width="404" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/98aa6627-7c78-4c32-9aeb-df9a6003afb8">
 
+- comment_id takes the value of the _id from blogsdb.
+- comment_by takes the value of the username in order to record the author of comment.
+- username and created_by have the same value to connect the author and users value.
+- category_name is used in blogsdb to connect the category of the blog.
+  
 <hr>
 
 <a name="testing"></a>
