@@ -267,7 +267,7 @@ As a first time visitor, I want to give basic information about the website, the
 <a name="dbschema"></a>
 # Database Schema
 
-- Non-Relational Database has been used in this project.
+- Non-Relational Database (MongoDB) has been used in this project.
 - The database collections for this project:
  <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
 
