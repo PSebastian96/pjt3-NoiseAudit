@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+    {% if list_of_blogs|length > 0 %}
     <div class="row grey darken-2 list-padding">
         {% for blog in list_of_blogs %}
         {% if session['user'] == blog.created_by %}
@@ -21,13 +21,14 @@
                    </div>
                 </div>
             </div>
-        {% else %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% else %}
                 <div class="row list-padding">
                     <div class="col s12 m8 offset-m2">
                         <h3 class="red-text GloriaHallelujah center-align">No Audits Posted</h3>
                     </div>
                 </div>
-        {% endif %}
-        {% endfor %}
-    </div>
+    {% endif %}
 {% endblock %}
