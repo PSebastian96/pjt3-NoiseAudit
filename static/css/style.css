@@ -335,6 +335,31 @@ textarea {
     }
 }
 
+@media screen and (min-width: 910px) and (max-width: 912px) {
+    .pad-bottom {
+        padding-bottom: 42rem;
+    }
+    .pd-bttm {
+        padding-bottom: 13rem;
+    }
+}
+
+@media screen and (min-width: 818px) and (max-width: 820px) {
+    .pad-bottom {
+        padding-bottom: 35rem;
+    }
+
+    .pd-bttm {
+        padding-bottom: 7rem;
+    }
+}
+
+@media screen and (min-width: 765px) and (max-width: 768px){
+    .pad-bottom {
+        padding-bottom: 24rem;
+    }
+}
+
 /* mobile */
 @media screen and (max-width: 600px){
 
