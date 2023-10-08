@@ -200,7 +200,7 @@ As a first time visitor, I want to give basic information about the website, the
 <img width="547" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d80bdb78-f82d-4708-812f-eeffa0a44f17">
 
 5. If you finished the writing just press the SUBMIT AUDIT button to submit the blog.
-6. If not done, just carry on within the text area with "<p></p>" elements and make sure to "<p>" use open tag in the beginning and closed "</p>" tag at the end of the text.
+6. If not done, just carry on within the text area with `<p></p>` elements and make sure to `<p>` use open tag in the beginning and closed `</p>` tag at the end of the text.
 7. After that press the SUBMIT AUDIT button to submit the blog.
    
 <hr>
