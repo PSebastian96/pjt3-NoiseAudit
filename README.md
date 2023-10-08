@@ -106,6 +106,10 @@ As a first time visitor, I want to give basic information about the website, the
 
 <img width="301" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/33b3914f-165e-4e7d-8f15-03e22d50ec13">
 
+- In the Contact section, first time users can send their queries to the website owner.
+- Here is the automated reply set up by EMailJS API:
+
+<img width="902" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/eab459e7-5f05-41a5-87f6-f0197bdfdf32">
 
 ### Frequent user goals :
 
@@ -196,7 +200,7 @@ As a first time visitor, I want to give basic information about the website, the
 <img width="547" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d80bdb78-f82d-4708-812f-eeffa0a44f17">
 
 5. If you finished the writing just press the SUBMIT AUDIT button to submit the blog.
-6. If not done, just carry on within the text area with <p></p> elements and make sure to <p> use open tag in the beginning and closed </p> tag at the end of the text.
+6. If not done, just carry on within the text area with "<p></p>" elements and make sure to "<p>" use open tag in the beginning and closed "</p>" tag at the end of the text.
 7. After that press the SUBMIT AUDIT button to submit the blog.
    
 <hr>
