@@ -384,13 +384,13 @@ def dashboard():
     # find admin session
     admin_user = mongo.db.users.find_one({"username": "admin"})
 
-    if current_user == admin_user:
-        return render_template("dashboard.html", list_of_users=list_of_users,
-                           list_of_blogs=list_of_blogs)
-
-    else:
+    if current_user != admin_user:
         flash("You do not have permission to access this page!")
         return redirect(url_for("index"))
+
+    else:
+        return render_template("dashboard.html", list_of_users=list_of_users,
+                           list_of_blogs=list_of_blogs)
 
     
 
