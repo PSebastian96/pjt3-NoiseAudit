@@ -172,12 +172,12 @@ def read_blog(blog_id):
     # match the comment to the correct blog
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
-
+    # check if user doesn't exist in database 
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
-
-    if list_of_blogs:
+    # if logged in
+    else:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
                                list_of_comments=list_of_comments,
                                related_comment=related_comment,
@@ -194,7 +194,9 @@ def add_blog():
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
 
-    if username != session["user"]:
+    current_user = session.get('user')
+
+    if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
@@ -241,6 +243,12 @@ def edit_blog(blog_id):
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
 
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -261,6 +269,12 @@ def edit_blog(blog_id):
 # delete blog function
 @app.route("/delete_blog/<blog_id>")
 def delete_blog(blog_id):
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+
     mongo.db.blogsdb.delete_one({"_id": ObjectId(blog_id)})
     flash("Audit Successfully Deleted")
     return redirect(url_for("get_blogs"))
@@ -271,6 +285,12 @@ def delete_blog(blog_id):
 def add_comment(blog_id):
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
+
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
 
     if request.method == 'POST':
         comment = {
@@ -291,6 +311,12 @@ def add_comment(blog_id):
 @app.route('/edit_comment/<comment_id>', methods=["GET", "POST"])
 def edit_comment(comment_id):
 
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+
     if request.method == "POST":
         submit = {
             "comm_content": request.form.get("comm_content")
@@ -308,6 +334,13 @@ def edit_comment(comment_id):
 # delete comment
 @app.route('/delete_comment/<comment_id>')
 def delete_comment(comment_id):
+
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+
     mongo.db.commentsdb.delete_one({"_id": ObjectId(comment_id)})
     flash("Comment Successfully Deleted")
     return redirect(url_for('get_blogs'))
@@ -316,6 +349,13 @@ def delete_comment(comment_id):
 # my blogs page
 @app.route('/myblogs')
 def my_blogs():
+
+    current_user = session.get('user')
+
+    if current_user is None:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+
     # display blogs by latest date
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("my_blogs.html", list_of_blogs=list_of_blogs)
@@ -332,13 +372,17 @@ def contact():
 def dashboard():
     list_of_users = list(mongo.db.users.find())
     list_of_blogs = list(mongo.db.blogsdb.find())
+    admin_user = mongo.db.users.find_one({"username": "admin"})
 
-    if username != session["user"]:
-        flash("Please login to complete request!")
+    if admin_user:
+        return render_template("dashboard.html", list_of_users=list_of_users,
+                           list_of_blogs=list_of_blogs)
+
+    else:
+        flash("You do not have permission to access this page!")
         return redirect(url_for("index"))
 
-    return render_template("dashboard.html", list_of_users=list_of_users,
-                           list_of_blogs=list_of_blogs)
+    
 
 
 # admin search function
@@ -357,9 +401,15 @@ def admin_search():
 # admin remove account
 @app.route("/delete_user_admin/<user_id>")
 def delete_user_admin(user_id):
-    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
-    flash("Account Has Been Deleted")
-    return redirect(url_for("dashboard"))
+    admin_user = mongo.db.users.find_one({"username": "admin"})
+
+    if admin_user:
+        mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+        flash("Account Has Been Deleted")
+        return redirect(url_for("dashboard"))
+    else:
+        flash("You do not have permission to access this page!")
+        return redirect(url_for("index"))
 
 
 # error handling 404 page not found
