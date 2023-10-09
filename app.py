@@ -164,6 +164,7 @@ def search():
 @app.route("/read_blog/<blog_id>")
 def read_blog(blog_id):
     current_user = session.get('user')
+    list_of_users = list(mongo.db.users.find())
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     # get admin value from db
     admin_user = mongo.db.users.find_one({"username": "admin"})
@@ -172,7 +173,7 @@ def read_blog(blog_id):
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
 
-    if current_user != session.get('user')
+    if current_user != session.get('user'):
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
