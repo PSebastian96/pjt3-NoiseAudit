@@ -187,6 +187,9 @@ def add_blog():
 
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
+    if 'user' not in session:
+        flash('please login to complete this request')
+        return redirect(url_for('signout'))
 
     if request.method == "POST":
         # find blog's title
