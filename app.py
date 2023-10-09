@@ -173,7 +173,7 @@ def read_blog(blog_id):
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
 
-    if current_user not in list_of_users:
+    if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
