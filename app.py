@@ -171,6 +171,10 @@ def read_blog(blog_id):
     # match the comment to the correct blog
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
+    
+    if current_user != session["user"]:
+        flash("Login to complete action")
+    
     if list_of_blogs:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
                                list_of_comments=list_of_comments,
@@ -187,9 +191,10 @@ def add_blog():
 
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
-    
-    if username != session["user"]:
+
+    if not session["user"]:
         flash("Please login to complete request!")
+        return redirect(url_for("index"))
 
     if request.method == "POST":
         # find blog's title
