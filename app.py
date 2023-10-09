@@ -146,7 +146,7 @@ def delete_user(user_id):
 @app.route("/get_blogs")
 def get_blogs():
     # display blogs by latest date
-    list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", 1))
+    list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
 
 
