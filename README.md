@@ -373,17 +373,17 @@ As a first time visitor, I want to give basic information about the website, the
 
 Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the below screen sizes:
 
-iPhone SE (375 x 667)
-iPhone XR (414 x 736)
-iPhone 12Pro (390 x 844)
-Pixel 5 (393 x 851)
-Samsung Galaxy S8+ (360 x 740)
-Samsung Galaxy S20 Ultra (412 x 915)
-Galaxy Fold (280 x 653)
-iPad Air (820 x 1180)
-iPad Mini (768 x 1024)
-Surface Pro 7 ( 912 x 1368)
-Surface Duo ( 540 x 720)
+- iPhone SE (375 x 667)
+- iPhone XR (414 x 736)
+- iPhone 12Pro (390 x 844)
+- Pixel 5 (393 x 851)
+- Samsung Galaxy S8+ (360 x 740)
+- Samsung Galaxy S20 Ultra (412 x 915)
+- Galaxy Fold (280 x 653)
+- iPad Air (820 x 1180)
+- iPad Mini (768 x 1024)
+- Surface Pro 7 ( 912 x 1368)
+- Surface Duo ( 540 x 720)
 
 <a name="sources"></a>
 # Sources
