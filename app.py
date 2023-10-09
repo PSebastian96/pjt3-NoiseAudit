@@ -372,28 +372,18 @@ def contact():
 def dashboard():
     list_of_users = list(mongo.db.users.find())
     list_of_blogs = list(mongo.db.blogsdb.find())
-    admin_user = mongo.db.users.find_one({"username": "admin"})
-
-    # current user's session
+    
     current_user = session.get('user')
 
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
-
-    # find admin session
-    admin_user = mongo.db.users.find_one({"username": "admin"})
-
-    if current_user == admin_user:
-        flash("You do not have permission to access this page!")
-        return redirect(url_for("index"))
-
+        
     else:
         return render_template("dashboard.html", list_of_users=list_of_users,
                            list_of_blogs=list_of_blogs)
 
     
-
 
 # admin search function
 @app.route("/admin_search", methods=["GET", "POST"])
