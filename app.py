@@ -187,37 +187,33 @@ def add_blog():
 
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
-    if session["user"]:
+    
+    if request.method == "POST":
+        # find blog's title
+        blog_title = {
+            "blog_title": request.form.get("blog_title").title()
+        }
 
-        if request.method == "POST":
-            # find blog's title
-            blog_title = {
-                "blog_title": request.form.get("blog_title").title()
-            }
+        blog = {
+            "created_by": session["user"],
+            "category_name": request.form.get("category_name"),
+            "created_date": request.form.get("created_date"),
+            "blog_title": request.form.get("blog_title"),
+            "blog_content": request.form.get("ckeditor")
+        }
 
-            blog = {
-                "created_by": session["user"],
-                "category_name": request.form.get("category_name"),
-                "created_date": request.form.get("created_date"),
-                "blog_title": request.form.get("blog_title"),
-                "blog_content": request.form.get("ckeditor")
-            }
+        # check if blog exists by checking title
+        existing_blog = mongo.db.blogsdb.find_one(blog_title)
 
-            # check if blog exists by checking title
-            existing_blog = mongo.db.blogsdb.find_one(blog_title)
+        # if blog title exists tell user the it's already in the db
+        if existing_blog:
+            flash("Audit Title Already Exists.")
 
-            # if blog title exists tell user the it's already in the db
-            if existing_blog:
-                flash("Audit Title Already Exists.")
-
-            # If it doesn't exist, post audit
-            else:
-                mongo.db.blogsdb.insert_one(blog)
-                flash("Audit Successfully Published")
-                return redirect(url_for("get_blogs"))
-    else:
-        flash('please login to complete this request')
-        return redirect(url_for('index'))
+        # If it doesn't exist, post audit
+        else:
+            mongo.db.blogsdb.insert_one(blog)
+            flash("Audit Successfully Published")
+            return redirect(url_for("get_blogs"))
 
     list_of_blogs = mongo.db.blogsdb.find().sort("created_date", 1)
     categories = mongo.db.categories.find().sort("category_name", 1)
