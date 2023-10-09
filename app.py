@@ -192,7 +192,7 @@ def add_blog():
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
 
-    if not session["user"]:
+    if username not in session["user"]:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
