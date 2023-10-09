@@ -15,17 +15,18 @@ Third Milestone Project - Code Institute
 *   [Introduction](#intro)
 *   [User Experience (UX)](#userexp)
     *   [Design](#design)
-    *   [User Stories](#userstory)
-    *   [How To Blog](#how2blog)
     *   [Wireframing](#wireframe)
+    *   [User Stories](#userstory)
+    *   [Database Schema](#dbschema)
+    *   [How To Blog](#how2blog)
 *   [Technologies used](#tech)
-*   [Database Schema](#dbschema)
 *   [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
     *   [Javascript](#js)
     *   [Python](#python)
     *   [Lighthouse](#lighthouse)
+    *   [Responsivness](#responsive)
 *   [Content Sources](#sources)
 *   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
@@ -154,6 +155,38 @@ As a first time visitor, I want to give basic information about the website, the
 
 2. <img width="895" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b05ff28a-76ed-4749-962c-2f2051f600d0">
 
+<a name="dbschema"></a>
+### Database Schema
+
+- Non-Relational Database (MongoDB) has been used in this project.
+- The database collections for this project:
+ <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
+
+- users database:
+<img width="866" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4b2dbb67-2ccd-40d1-b399-c402248acd53">
+
+
+- blogsdb database:
+<img width="937" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/cc4b7bac-40a8-467e-b09c-15ee01640663">
+
+
+- commentsdb database:
+<img width="899" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/fd0eddb2-f85e-41ff-8575-3e96464e534f">
+
+
+- categorydb database:
+<img width="922" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4e9840b0-2dce-406b-9cbf-295f40e88abb">
+
+
+- Schema:
+
+<img width="404" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/98aa6627-7c78-4c32-9aeb-df9a6003afb8">
+
+- comment_id takes the value of the _id from blogsdb.
+- comment_by takes the value of the username in order to record the author of comment.
+- username and created_by have the same value to connect the author and users value.
+- category_name is used in blogsdb to connect the category of the blog.
+  
 <hr>
 
 <a name="how2blog"></a>
@@ -289,40 +322,6 @@ As a first time visitor, I want to give basic information about the website, the
 
 <hr>
 
-<a name="dbschema"></a>
-# Database Schema
-
-- Non-Relational Database (MongoDB) has been used in this project.
-- The database collections for this project:
- <img width="220" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/af27f9e0-ee34-4109-b037-654008d33b88">
-
-- users database:
-<img width="866" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4b2dbb67-2ccd-40d1-b399-c402248acd53">
-
-
-- blogsdb database:
-<img width="937" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/cc4b7bac-40a8-467e-b09c-15ee01640663">
-
-
-- commentsdb database:
-<img width="899" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/fd0eddb2-f85e-41ff-8575-3e96464e534f">
-
-
-- categorydb database:
-<img width="922" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/4e9840b0-2dce-406b-9cbf-295f40e88abb">
-
-
-- Schema:
-
-<img width="404" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/98aa6627-7c78-4c32-9aeb-df9a6003afb8">
-
-- comment_id takes the value of the _id from blogsdb.
-- comment_by takes the value of the username in order to record the author of comment.
-- username and created_by have the same value to connect the author and users value.
-- category_name is used in blogsdb to connect the category of the blog.
-  
-<hr>
-
 <a name="testing"></a>
 # Testing
 
@@ -369,6 +368,23 @@ As a first time visitor, I want to give basic information about the website, the
 
 <hr>
 
+<a name="responsive"></a>
+### Responsivness
+
+Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the below screen sizes:
+
+- iPhone SE (375 x 667)
+- iPhone XR (414 x 736)
+- iPhone 12Pro (390 x 844)
+- Pixel 5 (393 x 851)
+- Samsung Galaxy S8+ (360 x 740)
+- Samsung Galaxy S20 Ultra (412 x 915)
+- Galaxy Fold (280 x 653)
+- iPad Air (820 x 1180)
+- iPad Mini (768 x 1024)
+- Surface Pro 7 ( 912 x 1368)
+- Surface Duo ( 540 x 720)
+
 <a name="sources"></a>
 # Sources
 
@@ -392,7 +408,7 @@ As a first time visitor, I want to give basic information about the website, the
 
 - Diagrams [https://app.diagrams.net]
 
-### Responsivnes
+### Responsivness
 
 - Responsive Images made with Am I Responsive? [https://ui.dev/amiresponsive]
 
@@ -427,6 +443,17 @@ Followed by settings and select Config Vars and then Reveal Config Vars.
 4. Under the Deploy tab go to Automatic Deploys and press Enable. <br>
 5. Under Manual Deploy, choose Master and click Deploy Branch.
 Heroku will begin building the app. When it is ready, you can click Open app to launch it.
+
+### Make a clone of Git Repo
+1. Select the Repo you wish to clone in GitHub
+2. Click on the code dropdown button
+3. Copy the https link to your clipboard
+4. Open your gitpod workspace
+5. In the terminal type "git clone" and paste the copied link
+6. Hit enter to create the clone
+7. To install the required packages type pip install -r requirements.txt into the command line
+8. To view what the code will look like in a browser from here type "python3 app.py" into the console and hit enter or replace "app.py" with your `filename.py`
+9. A pop-up will appear stating "A service is available on Port 8080" select Open Browser
 
 <a name="acknowledgements"></a>
 # Acknowledgements
