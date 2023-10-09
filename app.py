@@ -172,7 +172,7 @@ def read_blog(blog_id):
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
 
-    if current_user != session["user"]:
+    if current_user != session.get('user')
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
@@ -335,7 +335,7 @@ def dashboard():
     if username != session["user"]:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
-        
+
     return render_template("dashboard.html", list_of_users=list_of_users,
                            list_of_blogs=list_of_blogs)
 
