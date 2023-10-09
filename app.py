@@ -187,12 +187,9 @@ def add_blog():
 
     now = datetime.now()  # current date and time
     date_time = now.strftime("%d/%m/%Y")
-    user = mongo.db.users.find_one({'username': session['user']})
-    if user not in session:
-        flash('please login to complete this request')
-        return redirect(url_for('index'))
-
-    if request.method == "POST":
+    if session["user"]:
+    
+        if request.method == "POST":
         # find blog's title
         blog_title = {
             "blog_title": request.form.get("blog_title").title()
@@ -218,6 +215,9 @@ def add_blog():
             mongo.db.blogsdb.insert_one(blog)
             flash("Audit Successfully Published")
             return redirect(url_for("get_blogs"))
+    else:
+        flash('please login to complete this request')
+        return redirect(url_for('index'))
 
     list_of_blogs = mongo.db.blogsdb.find().sort("created_date", 1)
     categories = mongo.db.categories.find().sort("category_name", 1)
