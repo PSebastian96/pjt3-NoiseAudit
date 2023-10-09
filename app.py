@@ -331,6 +331,11 @@ def contact():
 def dashboard():
     list_of_users = list(mongo.db.users.find())
     list_of_blogs = list(mongo.db.blogsdb.find())
+
+    if username != session["user"]:
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
+        
     return render_template("dashboard.html", list_of_users=list_of_users,
                            list_of_blogs=list_of_blogs)
 
