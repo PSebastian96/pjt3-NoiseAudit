@@ -171,13 +171,10 @@ def read_blog(blog_id):
     # match the comment to the correct blog
     related_comment = list(mongo.db.commentsdb.find({'comm_id': blog_id}).sort(
                                                     'comm_date', 1))
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users = list(mongo.db.users.find())
-
+    
     if current_user != session["user"]:
-        flash("Login to complete action")
+        flash("Please login to complete request!")
+        return redirect(url_for("index"))
 
     if list_of_blogs:
         return render_template("read_blog.html", list_of_blogs=list_of_blogs,
