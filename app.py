@@ -380,6 +380,8 @@ def dashboard():
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
+    admin_user = mongo.db.users.find_one({"username": current_user, "admin": True})
+
     if admin_user:
         return render_template("dashboard.html", list_of_users=list_of_users,
                            list_of_blogs=list_of_blogs)
