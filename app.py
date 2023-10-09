@@ -384,7 +384,7 @@ def dashboard():
     # find admin session
     admin_user = mongo.db.users.find_one({"username": "admin"})
 
-    if current_user != admin_user:
+    if current_user == admin_user:
         flash("You do not have permission to access this page!")
         return redirect(url_for("index"))
 
