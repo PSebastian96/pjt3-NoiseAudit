@@ -374,15 +374,17 @@ def dashboard():
     list_of_blogs = list(mongo.db.blogsdb.find())
     admin_user = mongo.db.users.find_one({"username": "admin"})
 
-    current_user = session.get('user')  # Get the current logged-in user
+    # current user's session
+    current_user = session.get('user')
 
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
-    admin_user = mongo.db.users.find_one({"username": current_user, "admin": True})
+    # find admin session
+    admin_user = mongo.db.users.find_one({"username": "admin"})
 
-    if admin_user:
+    if current_user == admin_user:
         return render_template("dashboard.html", list_of_users=list_of_users,
                            list_of_blogs=list_of_blogs)
 
