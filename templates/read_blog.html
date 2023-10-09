@@ -66,12 +66,12 @@
                         <p class="GloriaHallelujah">{{ comment.comm_content }}</p>
                         </div>
                     </div>
-                    {% if current_user == comment.comm_by %}
                     <div class="valign-wrapper">
+                        {% if current_user == comment.comm_by %}
                         <a href="{{ url_for('edit_comment', comment_id=comment['_id'])}}" class="btn orange GloriaHallelujah">Edit</a>
                         <a href="#modal1" class="btn red modal-trigger GloriaHallelujah">Delete</a>
+                        {% endif %}
                     </div>
-                    {% endif %}
                     {% endfor %}
                     {% else %}
                     <div>

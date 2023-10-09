@@ -301,7 +301,8 @@ def add_comment(blog_id):
         }
         mongo.db.commentsdb.insert_one(comment)
         flash("Comment Successfully Added")
-        return redirect(url_for('read_blog'))
+        list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+        return redirect(url_for('read_blog', blog_id=list_of_blogs['_id']))
 
     list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     return render_template('add_comment.html', list_of_blogs=list_of_blogs)
