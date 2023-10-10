@@ -354,7 +354,7 @@ def edit_comment(comment_id):
         # get the blog_id associated with the corresponding comment
         comment = mongo.db.commentsdb.find_one({"_id": ObjectId(comment_id)})
         blog_id = comment.get("comm_id")
-        # redirect the user to the blog 
+        # redirect the user to the blog
         return redirect(url_for('read_blog', blog_id=blog_id))
 
     list_of_comments = mongo.db.commentsdb.find_one({"_id":
@@ -369,7 +369,7 @@ def edit_comment(comment_id):
 def delete_comment(comment_id):
 
     current_user = session.get('user')
-    # check if the user has access to the page 
+    # check if the user has access to the page
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
