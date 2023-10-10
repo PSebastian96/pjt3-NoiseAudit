@@ -428,6 +428,14 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 | Comment | Registered users can leave comments on every blog and also if the user is the author of the comment, the user will have access to 2 buttons Edit and Delete, which allows the Update and Delete elements of the CRUD functions |+PASSED+|
 | Delete Comment | Registered user by deleting their comment are warned by a modal about the action and have the option to cancel or to go forward with the action |+PASSED+|
 
+#### Features
+| Task | Criteria & Features | Outcome/Comments  |
+| -------------    | -------------       | -------------     |
+| Contact Page | On the Contact page the registered member can contact the administration of the website with any queries they might have, by sending the message the user gets notified if the query has been sent and receives an automated response to the email address that is passed in the contact form |+PASSED+|
+| Flash Messages | Flash message method have been used to let the user know if the requested action was succesfull, which can be found between the navbar and content of the website when a particular action is executed (post blog, edit, delete or login and out of the website)  |+PASSED+|
+| Logout Flash Message | Flash messages tells the user that they have been logged out of the website |+PASSED+|
+| Security Test   | In order to access any CRUD elements of the website, the user has to be registered, otherwise if the user tries to manipulate the url link to access any page will be thrown a flash message saying either not having access or must be logged in to access the link |+PASSED+|
+
 <a name="sources"></a>
 # Sources
 
