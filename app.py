@@ -282,6 +282,8 @@ def edit_blog(blog_id):
         mongo.db.blogsdb.update_one({"_id": ObjectId(blog_id)},
                                     {"$set": submit})
         flash("Blog Successfully Edited")
+        list_of_blogs = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
+        return redirect(url_for('read_blog', blog_id=list_of_blogs['_id']))
 
     blog = mongo.db.blogsdb.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
