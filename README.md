@@ -409,8 +409,13 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 #### Admin User Goals
 | Task | Criteria & Features | Outcome/Comments  |
 | -------------    | -------------       | -------------     |   
-| Have access to basic information     | First time user has access and information on 'About us', Reviews and FAQ section |+PASSED+|
-| Website responsivness on devices     | Mobile phone friendly,tablet and large devices responsive   |+PASSED+|
+| Be able to perform basic CRUD operations     | Be able to create, read, update and delete blogs & comments on the website by having access to the same user functions as the creators of the blog or comments |+PASSED+|
+| Dashboard    | Admin user has a extra page named 'Dashboard', where the admin can search through database by usernames, blog titles contents and perform 'Delete' functionality on users  |+PASSED+|
+| Query through blogs     | On the 'Dashboard' section the admin can search through all the blogs published on the site and perform CRUD functionalities on blogs and by selecting a desired blog and within that, CRUD funcitonalities can be performed on comments |+PASSED+|
+| Defensive programming | Modals have been put in place in order to avoid deleting blogs, comments or users by mistake, by each delete request a modal is triggered and asks the admin if the choice wants to be done and warns about the consequences of the action|+PASSED+|
+| Oversee the content |  The admins role to oversee content on the website is made possible by having access to all CRUD functionalities on each blog, every comment and users accounts, the admin can manipulate every content or delete a user in case of violation of the sites policy|+PASSED+|
+
+
 <a name="sources"></a>
 # Sources
 
