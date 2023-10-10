@@ -29,12 +29,18 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    # current active page
+    current_route = request.endpoint
+    return render_template("index.html", current_route=current_route)
 
 
 # register function
 @app.route("/join", methods=["GET", "POST"])
 def join():
+
+    # current active page
+    current_route = request.endpoint
+
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -59,12 +65,16 @@ def join():
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("join.html")
+    return render_template("join.html", current_route=current_route)
 
 
 # login function
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
+
+    # current active page
+    current_route = request.endpoint
+
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -86,12 +96,16 @@ def signin():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("signin"))
-    return render_template("signin.html")
+    return render_template("signin.html", current_route=current_route)
 
 
 # profile template
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+
+    # current active page
+    current_route = request.endpoint
+
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -99,9 +113,10 @@ def profile(username):
 
     if session["user"]:
         return render_template(
-            "profile.html", username=username, users=users)
+            "profile.html", username=username, users=users,
+            current_route=current_route)
 
-    return redirect(url_for("signin"))
+    return redirect(url_for("signin", current_route=current_route))
 
 
 # edit profile details
@@ -145,9 +160,14 @@ def delete_user(user_id):
 # blog page template
 @app.route("/get_blogs")
 def get_blogs():
+
+    # current active page
+    current_route = request.endpoint
+
     # display blogs by latest date
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
-    return render_template("get_blogs.html", list_of_blogs=list_of_blogs)
+    return render_template("get_blogs.html", list_of_blogs=list_of_blogs,
+                           current_route=current_route)
 
 
 # search blogs
@@ -187,6 +207,10 @@ def read_blog(blog_id):
 # add blog function
 @app.route("/add_blog", methods=["GET", "POST"])
 def add_blog():
+
+    # current active page
+    current_route = request.endpoint
+
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -230,7 +254,7 @@ def add_blog():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_blog.html", list_of_blogs=list_of_blogs,
                            username=username, date_time=date_time,
-                           categories=categories)
+                           categories=categories, current_route=current_route)
 
 
 # edit blog function
@@ -352,6 +376,9 @@ def delete_comment(comment_id):
 @app.route('/myblogs')
 def my_blogs():
 
+    # current active page
+    current_route = request.endpoint
+    # current active user
     current_user = session.get('user')
 
     if current_user is None:
@@ -364,18 +391,25 @@ def my_blogs():
     # display blogs by latest date
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("my_blogs.html", list_of_blogs=list_of_blogs,
-                           user_has_blog=user_has_blog)
+                           user_has_blog=user_has_blog,
+                           current_route=current_route)
 
 
 # contact page template
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    # current active page
+    current_route = request.endpoint
+    return render_template("contact.html", current_route=current_route)
 
 
 # admin dashboard
 @app.route("/dashboard")
 def dashboard():
+
+    # current active page
+    current_route = request.endpoint
+
     list_of_users = list(mongo.db.users.find())
     list_of_blogs = list(mongo.db.blogsdb.find())
 
@@ -387,7 +421,8 @@ def dashboard():
 
     else:
         return render_template("dashboard.html", list_of_users=list_of_users,
-                               list_of_blogs=list_of_blogs)
+                               list_of_blogs=list_of_blogs,
+                               current_route=current_route)
 
 
 # admin search function

@@ -41,6 +41,11 @@
     text-decoration: underline;
 }
 
+/* current page view */
+.active a {
+    color: #68dc64;
+}
+
 /* footer style */
 
 footer {

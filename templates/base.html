@@ -37,20 +37,20 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down menu-list">
                         {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                        <li class="{% if current_route == 'dashboard' %}active{% endif %}"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                         {% endif %}
                         {% if session.user %}
-                        <li><a href="{{ url_for('get_blogs') }}">Blogs</a></li>
-                        <li><a href="{{ url_for('add_blog') }}">Create</a></li>
-                        <li><a href="{{ url_for('my_blogs') }}">MyBlogs</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li class="{% if current_route == 'get_blogs' %}active{% endif %}"><a href="{{ url_for('get_blogs') }}">Blogs</a></li>
+                        <li class="{% if current_route == 'add_blog' %}active{% endif %}"><a href="{{ url_for('add_blog') }}">Create</a></li>
+                        <li class="{% if current_route == 'my_blogs' %}active{% endif %}"><a href="{{ url_for('my_blogs') }}">MyBlogs</a></li>
+                        <li class="{% if current_route == 'profile' %}active{% endif %}"><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li class="{% if current_route == 'contact' %}active{% endif %}"><a href="{{ url_for('contact') }}">Contact</a></li>
                         <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
                         {% else %}
-                        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('join') }}">Join</a></li>
-                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                        <li><a href="{{ url_for('signin') }}">Sign in</a></li>
+                        <li class="{% if current_route == 'index' %}active{% endif %}"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="{% if current_route == 'join' %}active{% endif %}"><a href="{{ url_for('join') }}">Join</a></li>
+                        <li class="{% if current_route == 'contact' %}active{% endif %}"><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li class="{% if current_route == 'signin' %}active{% endif %}"><a href="{{ url_for('signin') }}">Sign in</a></li>
                         {% endif %}
                     </ul>
                 </div>
