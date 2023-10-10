@@ -27,6 +27,7 @@ Third Milestone Project - Code Institute
     *   [Python](#python)
     *   [Lighthouse](#lighthouse)
     *   [Responsivness](#responsive)
+    *   [User Stories Testing](#uitest)
 *   [Content Sources](#sources)
 *   [Deployment](#deploy)
 *   [Acknowledgements](#acknowledgements)
@@ -392,6 +393,24 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 - Surface Pro 7 ( 912 x 1368)
 - Surface Duo ( 540 x 720)
 
+<a name="uitest"></a>
+### User Stories Testing
+
+#### First Time User
+| First Time User  | Criteria & Features | Outcome/Comments  |
+| -------------    | -------------       | -------------     |             
+| Have access to basic information     | First time user has access and information on 'About us', Reviews and FAQ section |+PASSED+|
+| Website responsivness on devices     | Mobile phone friendly,tablet and large devices responsive   |+PASSED+|
+| Easily navigate through site     | Navbar can be found on the top-right side and each page is highlighted when the user visits selected section|+PASSED+|
+| Easily understand the purpose of site    | The welcoming text gives a brief summary and invitation for the first time user to join and share their musical interests with other music enthusiasts|+PASSED+|
+| Option to Register    | First time user has the Join menu, where by filling out a basic registration form enables the user to become a member and start Bloging|+PASSED+|
+| Contact the website administrators for further queries | Thanks to EmailJS API, on the Contact section, the API is used to receive the users query or message and the user gets notified by receiving a automated response email confirming that their query has been sent as well as on the forms bottom section a message is displayed 'Query sent successfully'|+PASSED+|
+
+#### Admin User Goals
+| Task | Criteria & Features | Outcome/Comments  |
+| -------------    | -------------       | -------------     |   
+| Have access to basic information     | First time user has access and information on 'About us', Reviews and FAQ section |+PASSED+|
+| Website responsivness on devices     | Mobile phone friendly,tablet and large devices responsive   |+PASSED+|
 <a name="sources"></a>
 # Sources
 
