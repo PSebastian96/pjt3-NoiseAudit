@@ -41,9 +41,15 @@
     text-decoration: underline;
 }
 
-/* current page view */
+/* current page view large/medium device */
 .active a {
     color: #68dc64;
+}
+
+/* current page view mobile device */
+
+.underline a {
+    text-decoration: underline;
 }
 
 /* footer style */
@@ -290,6 +296,10 @@ textarea {
 .fixed {
     position: fixed;
     right: 0;
+}
+
+.no-margin {
+    margin: 0;
 }
 
 /* Flash Messages */

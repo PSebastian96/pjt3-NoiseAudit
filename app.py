@@ -381,6 +381,10 @@ def my_blogs():
     # current active user
     current_user = session.get('user')
 
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
@@ -392,7 +396,7 @@ def my_blogs():
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
     return render_template("my_blogs.html", list_of_blogs=list_of_blogs,
                            user_has_blog=user_has_blog,
-                           current_route=current_route)
+                           current_route=current_route, username=username)
 
 
 # contact page template
