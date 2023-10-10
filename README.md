@@ -77,14 +77,17 @@ Heroku Deployed Link - [https://noiseaudit-03-eec0b584a334.herokuapp.com]
 - Menu links are green when hovered over as well as the footer links.
 <img width="229" alt="green pallette" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/8b040696-3c06-4323-98c0-0570c9e39c51">
 
+- Current page view is highlighted when viewed by green colour:
+<img width="226" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/b807a4d5-c1f0-417c-9088-7cb4ab261ae4">
+
+- Current page view highlighted when viewed from registered user's perspective:
+<img width="377" alt="image" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/5c72321b-da51-42fd-9f86-61c5865e2164">
   
 - For the Logo, I have used the 'Rubik Distressed' google font family.
 <img width="144" alt="Logo font" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/35695192-ab8e-42e1-86e7-32593e0ff4d1">
 
-
 - For the menu links, 'Henny Penny' google font family is used.
 <img width="207" alt="menu font type" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/e374ebc2-a501-4866-93d6-7e7c3b39cde4">
-
 
 - For the titles, reviews and blog font style, I have used the 'Gloria Hallelujah' google font-family.
 <img width="256" alt="general_txt_font" src="https://github.com/PSebastian96/pjt3-NoiseAudit/assets/123810890/d5267c94-f515-4695-8d5c-a08c368d5b99">
