@@ -351,6 +351,11 @@ def edit_comment(comment_id):
         mongo.db.commentsdb.update_one({"_id": ObjectId(comment_id)},
                                        {"$set": submit})
         flash("Comment Successfully Updated")
+        # get the blog_id associated with the corresponding comment
+        comment = mongo.db.commentsdb.find_one({"_id": ObjectId(comment_id)})
+        blog_id = comment.get("comm_id")
+        # redirect the user to the blog 
+        return redirect(url_for('read_blog', blog_id=blog_id))
 
     list_of_comments = mongo.db.commentsdb.find_one({"_id":
                                                     ObjectId(comment_id)})
@@ -364,14 +369,18 @@ def edit_comment(comment_id):
 def delete_comment(comment_id):
 
     current_user = session.get('user')
-
+    # check if the user has access to the page 
     if current_user is None:
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
+    # get the blog_id associated with the corresponding comment
+    comment = mongo.db.commentsdb.find_one({"_id": ObjectId(comment_id)})
+    blog_id = comment.get("comm_id")
     mongo.db.commentsdb.delete_one({"_id": ObjectId(comment_id)})
     flash("Comment Successfully Deleted")
-    return redirect(url_for('get_blogs'))
+    # redirect the user back to the blog after deleting the comment
+    return redirect(url_for('read_blog', blog_id=blog_id))
 
 
 # my blogs page
@@ -473,4 +482,4 @@ def internal_server_error(error):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
