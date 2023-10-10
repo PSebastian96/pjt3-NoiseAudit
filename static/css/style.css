@@ -330,7 +330,23 @@ textarea {
 
 /* Responsivness */
 
-/* tablet */
+/* Desktop display */
+
+@media screen and (min-width: 1280px) and (max-width: 1920px){
+    .pad-bottom {
+        padding-bottom: 24rem;
+    }
+    .pd-bttm {
+        padding-bottom: 23rem;
+    }
+
+    .pd-bm-prof {
+        padding-bottom: 35rem;
+    }
+}
+
+/* Tablet devices */
+
 @media screen and (min-width: 760px) and (max-width: 920px){
     .rev-img {
         width: 15vh;
@@ -342,10 +358,10 @@ textarea {
 
 @media screen and (min-width: 910px) and (max-width: 912px) {
     .pad-bottom {
-        padding-bottom: 42rem;
+        padding-bottom: 24rem;
     }
     .pd-bttm {
-        padding-bottom: 13rem;
+        padding-bottom: 1rem;
     }
 }
 
@@ -366,7 +382,8 @@ textarea {
 }
 
 /* mobile */
-@media screen and (max-width: 600px){
+
+@media screen and (min-width: 360px) and (max-width: 600px){
 
     .rev-one {
         border: #68dc64 solid 2px;
@@ -399,4 +416,13 @@ textarea {
     h1 {
         font-size: 2rem;
     }
+
+    .pad-bottom {
+        padding-bottom: 27rem;
+    }
+
+    .txt-size-prof{
+        font-size: 2rem;
+    }
+
 }
