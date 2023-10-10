@@ -400,6 +400,11 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 
 - 404 & 500 Error Handlers - [https://pythonprogramming.net/flask-error-handling-basics/#:~:text=wrapper%20above%20it.-,app.,function%20to%20render%20a%20404.]
 
+### Flask -current page view:
+
+- [https://stackoverflow.com/questions/21498694/flask-get-current-route]
+- [https://python-web.teclado.com/section12/lectures/03_base_template_and_nav_bar/]
+
 ### Images
 
 - Pexels [https://www.pexels.com]
