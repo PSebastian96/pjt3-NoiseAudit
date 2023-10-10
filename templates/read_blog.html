@@ -43,9 +43,23 @@
             <li><a href="{{ url_for('add_comment', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">Comment</a></li>
             {% if session['user'] == list_of_blogs.created_by or current_user == admin_user['username'] %}
             <li><a href="{{ url_for('edit_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">EditBlog</a></li>
-            <li><a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id']) }}" class="GloriaHallelujah">DeleteBlog</a></li>
+            <li><a href="#modal{{ list_of_blogs['_id'] }}" class=" modal-trigger GloriaHallelujah">DeleteBlog</a></li>
             {% endif %}
           </ul>
+        </div>
+    </div>
+
+     <!-- Modal Structure del_blog-->
+     <div id="modal{{ list_of_blogs['_id'] }}" class="modal">
+        <div class="modal-content">
+            <p>You are about to delete your audit: {{ list_of_blogs.blog_title }} !
+                If you wish to cancel press "Cancel".
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="{{ url_for('read_blog', blog_id=list_of_blogs['_id'] )}}" class="btn-small red lighten-1">Cancel</a>
+            <a href="{{ url_for('delete_blog', blog_id=list_of_blogs['_id'])}}" class="btn-small red lighten-1">Delete</a>
+            </div>
         </div>
     </div>
 
@@ -84,7 +98,7 @@
     </div>
 
     {% for comment in related_comment %}
-    <!-- Modal Structure -->
+    <!-- Modal Structure del_comment -->
     <div id="modal{{ comment['_id'] }}" class="modal">
         <div class="modal-content">
             <p>You are about to delete your comment !

@@ -2,10 +2,11 @@
 
 {% block content %}
 
-    {% if list_of_blogs|length > 0 %}
+   
     <div class="row grey darken-2 list-padding">
+        {% if user_has_blog %}
         {% for blog in list_of_blogs %}
-        {% if session['user'] == blog.created_by %}
+           {% if session['user'] == blog.created_by %}
             <div class="col s12 m6 l4 center">
                 <div class="card small hoverable border blog-card grey darken-4">
                     <div class="card-content white-text">
@@ -17,18 +18,34 @@
                     <div class="border grey darken-4">
                         <a href="{{ url_for('read_blog', blog_id=blog['_id']) }}" class="btn green GloriaHallelujah">Read</a>
                         <a href="{{ url_for('edit_blog', blog_id=blog['_id']) }}" class="btn orange GloriaHallelujah">Edit</a>
-                        <a href="{{ url_for('delete_blog', blog_id=blog['_id']) }}" class="btn red GloriaHallelujah">Delete</a>
+                        <a href="#modal{{ blog['_id'] }}" class="btn red modal-trigger GloriaHallelujah">Delete</a>
                    </div>
                 </div>
             </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-    {% else %}
+            {% endif %}
+            {% endfor %}
+            {% else %}
                 <div class="row list-padding">
                     <div class="col s12 m8 offset-m2">
                         <h3 class="red-text GloriaHallelujah center-align">No Audits Posted</h3>
                     </div>
                 </div>
-    {% endif %}
+        {% endif %}
+    </div>
+
+    {% for blog in list_of_blogs %}
+        <!-- Modal Structure -->
+        <div id="modal{{ blog['_id'] }}" class="modal">
+            <div class="modal-content">
+                <p>You are about to delete your audit: {{ blog.blog_title }} !
+                    If you wish to cancel press "Cancel".
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('my_blogs')}}" class="btn-small red lighten-1">Cancel</a>
+                <a href="{{ url_for('delete_blog', blog_id=blog['_id'])}}" class="btn-small red lighten-1">Delete</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

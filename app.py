@@ -358,9 +358,13 @@ def my_blogs():
         flash("Please login to complete request!")
         return redirect(url_for("index"))
 
+    # check if the user posted any blogs
+    user_has_blog = mongo.db.blogsdb.find_one({"created_by": session["user"]})
+
     # display blogs by latest date
     list_of_blogs = list(mongo.db.blogsdb.find().sort("created_date", -1))
-    return render_template("my_blogs.html", list_of_blogs=list_of_blogs)
+    return render_template("my_blogs.html", list_of_blogs=list_of_blogs,
+                           user_has_blog=user_has_blog)
 
 
 # contact page template
