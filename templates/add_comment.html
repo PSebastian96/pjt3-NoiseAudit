@@ -15,6 +15,10 @@
                         <textarea id="comm_content" name="comm_content" class="validate GloriaHallelujah coment-bx input-field"
                         required></textarea>
                         <label for="comm_content" class="white-text GloriaHallelujah">Leave a comment</label>
+                        <!-- cancel button -->
+                        <a href="{{ url_for('read_blog', blog_id=list_of_blogs['_id']) }}" class="btn red text-shadow">
+                            Cancel
+                        </a>
                         <!-- confirm button -->
                         <button type="submit" class="btn green darken-1 text-shadow">
                         Submit 
