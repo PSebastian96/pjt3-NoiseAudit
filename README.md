@@ -415,6 +415,18 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 | Defensive programming | Modals have been put in place in order to avoid deleting blogs, comments or users by mistake, by each delete request a modal is triggered and asks the admin if the choice wants to be done and warns about the consequences of the action|+PASSED+|
 | Oversee the content |  The admins role to oversee content on the website is made possible by having access to all CRUD functionalities on each blog, every comment and users accounts, the admin can manipulate every content or delete a user in case of violation of the sites policy|+PASSED+|
 
+#### Member User Goals
+| Task | Criteria & Features | Outcome/Comments  |
+| -------------    | -------------       | -------------     |
+| Update Profile Details | Registered member on the 'Profile' page has access to edit personal details such as first, last name, email address |+PASSED+|
+| Delete Account | Registered member on the 'Profile' page has access to permanently delete their account, by deleting the account the user loses all access to the blogs and also is popped out of session therefore the same information will be available as to the first time user |+PASSED+|
+| Create Blog | Registered member on the 'Create' page has access to the form, which by filling out creates the blog and after the submit button the blog is created and pushed to the database. The user also has an option to create a blog on the 'Profile' page, making it more accessible to create a blog |+PASSED+|
+| Read blog | Registered member by selecting 'Blogs' option can access all the blogs published on the website and the blogs are ordered by latest date |+PASSED+|
+| Text editor | Within the form for blog creation, CKEditor has been used, which is a general purpose text editor and makes it easy for the user to enter the text, change fonts and also include youtube videos or pictures in the blog |+PASSED+|
+| Update blog | If the user is the author of a blog, has 2 options to edit the blog, one by reading the blog and on the right side have a helper which allows the user to comment, edit or delete the blog. By selecting the 'EditBlog' the user can add or remove content from the blog |+PASSED+|
+| Delete blog | Registered user by reading the blog, on the right side will have a helper box with options to go back, comment, edit or delete the blog. Thus by selecting 'DeleteBlog' a modal is triggered to warn the user that the blog is about to be deleted and to confirm the deletion the user must select 'Delete' or has the option to cancel which will redirect the user to Read Mode of the blog |+PASSED+|
+| Comment | Registered users can leave comments on every blog and also if the user is the author of the comment, the user will have access to 2 buttons Edit and Delete, which allows the Update and Delete elements of the CRUD functions |+PASSED+|
+| Delete Comment | Registered user by deleting their comment are warned by a modal about the action and have the option to cancel or to go forward with the action |+PASSED+|
 
 <a name="sources"></a>
 # Sources
