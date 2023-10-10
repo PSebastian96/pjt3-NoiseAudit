@@ -427,6 +427,7 @@ Testing was done on three browsers: Chrome & FireFox on laptop and Opera on the 
 | Delete blog | Registered user by reading the blog, on the right side will have a helper box with options to go back, comment, edit or delete the blog. Thus by selecting 'DeleteBlog' a modal is triggered to warn the user that the blog is about to be deleted and to confirm the deletion the user must select 'Delete' or has the option to cancel which will redirect the user to Read Mode of the blog |+PASSED+|
 | Comment | Registered users can leave comments on every blog and also if the user is the author of the comment, the user will have access to 2 buttons Edit and Delete, which allows the Update and Delete elements of the CRUD functions |+PASSED+|
 | Delete Comment | Registered user by deleting their comment are warned by a modal about the action and have the option to cancel or to go forward with the action |+PASSED+|
+| Search Blogs | Registered users can query the blog list of published blogs by blog title, author and content within the blog if search criteria doesnt match it will throw a message 'No Audits Found' |+PASSED+|
 
 #### Features
 | Task | Criteria & Features | Outcome/Comments  |
